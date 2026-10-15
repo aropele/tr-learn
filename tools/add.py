@@ -8,6 +8,7 @@ import json
 import mimetypes
 import os
 import re
+import shutil
 import sys
 import tempfile
 import urllib.error
@@ -114,36 +115,46 @@ def run(argv: list[str], repo_root: Path, data_root: Path) -> Path:
     kind, data, ext = a.kind, None, None
     if kind != "video":
         if a.file:
-            data = Path(a.file).read_bytes()
+            try:
+                data = Path(a.file).read_bytes()
+            except OSError as e:
+                sys.exit(f"cannot read --file: {e.strerror}")
             content_type = mimetypes.guess_type(a.file)[0] or ""
         else:
             req = urllib.request.Request(a.url, headers={"User-Agent": BROWSER_UA})
             try:
                 with urllib.request.urlopen(req, timeout=60) as r:
                     data, content_type = r.read(), r.headers.get("Content-Type", "")
-            except (urllib.error.HTTPError, urllib.error.URLError) as err:
+            except (urllib.error.URLError, OSError) as err:  # URLError, TimeoutError, resets
                 sys.exit(f"download failed ({err}); save the page in a browser and pass --file")
         try:
             kind = kind or infer_kind(a.url, content_type, data)
         except ValueError as err:
             sys.exit(str(err))
+        if kind == "pdf" and not data.startswith(b"%PDF-"):
+            sys.exit("--kind pdf but the data is not a PDF")
         ext = "pdf" if data.startswith(b"%PDF-") else "html"
 
     original = None
     if data is not None:
-        data_dir.mkdir(parents=True)
-        _write(data_dir / f"original.{ext}", data)
         original = {"path": f"{rel}/original.{ext}", "sha256": hashlib.sha256(data).hexdigest()}
-
     meta = {"id": sid, "title": a.title, "publisher": a.publisher, "authors": [],
             "published": a.published, "kind": kind, "url": a.url,
             "canonical_url": a.canonical_url, "fetched_at": fetched_at,
             "original": original, "notes": a.notes}
-    repo_dir.mkdir(parents=True)
-    (repo_dir / "source.json").write_text(
-        json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-    (repo_dir / "transcription.md").write_text(
-        front_matter(meta), encoding="utf-8", newline="\n")
+    try:
+        if data is not None:
+            data_dir.mkdir(parents=True)
+            _write(data_dir / f"original.{ext}", data)
+        repo_dir.mkdir(parents=True)
+        (repo_dir / "source.json").write_text(
+            json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+        (repo_dir / "transcription.md").write_text(
+            front_matter(meta), encoding="utf-8", newline="\n")
+    except OSError as e:
+        for d in (data_dir, repo_dir):  # both were absent before this run
+            shutil.rmtree(d, ignore_errors=True)
+        sys.exit(f"write failed for {rel}: {e.strerror}")
     return repo_dir
 
 

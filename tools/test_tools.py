@@ -93,6 +93,50 @@ def test_bad_published_is_refused():
     assert not (repo / "sources").exists()
 
 
+def _msg(fn):
+    try:
+        fn()
+    except SystemExit as e:
+        return str(e)
+    assert False, "expected SystemExit"
+
+
+def test_missing_file_is_clean_exit():
+    repo, data, tmp = dirs()
+    m = _msg(lambda: run(_pdf_args(tmp / "nope.pdf"), repo, data))
+    assert "cannot read --file" in m and str(data) not in m
+    assert not (repo / "sources").exists() and not (data / "sources").exists()
+
+
+def test_write_failure_cleans_up_without_absolute_path():
+    import add
+    repo, data, tmp = dirs()
+    f = tmp / "x.pdf"
+    f.write_bytes(b"%PDF-1.4 test")
+    real = add.os.replace
+
+    def boom(*a):
+        raise PermissionError(5, "Access is denied")
+    add.os.replace = boom
+    try:
+        m = _msg(lambda: run(_pdf_args(f), repo, data))
+    finally:
+        add.os.replace = real
+    assert "write failed for sources/vanguard/" in m and str(data) not in m and str(repo) not in m
+    assert not (repo / "sources/vanguard").exists() or not list((repo / "sources/vanguard").iterdir())
+    assert not list((data / "sources/vanguard").iterdir()) if (data / "sources/vanguard").exists() else True
+    run(_pdf_args(f), repo, data)  # retry is not blocked by an orphan
+
+
+def test_kind_pdf_with_non_pdf_is_refused():
+    repo, data, tmp = dirs()
+    f = tmp / "x.html"
+    f.write_bytes(b"<html></html>")
+    m = _msg(lambda: run(["https://x.com/p", "--publisher", "vanguard", "--title", "T",
+                          "--kind", "pdf", "--file", str(f)], repo, data))
+    assert "not a PDF" in m and not (repo / "sources").exists() and not (data / "sources").exists()
+
+
 def _fresh():
     repo, data, tmp = dirs()
     f = tmp / "x.pdf"

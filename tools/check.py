@@ -45,10 +45,13 @@ def check_source(sidecar: Path, data_root: Path) -> tuple[list[str], list[str]]:
         err(str(e))
     if orig is not None:
         p = data_root / orig["path"]
-        if not p.is_file():
-            err(f"original missing: {orig['path']}")
-        elif hashlib.sha256(p.read_bytes()).hexdigest() != orig["sha256"]:
-            err(f"original sha256 mismatch: {orig['path']}")
+        try:
+            if not p.is_file():
+                err(f"original missing: {orig['path']}")
+            elif hashlib.sha256(p.read_bytes()).hexdigest() != orig["sha256"]:
+                err(f"original sha256 mismatch: {orig['path']}")
+        except OSError as e:
+            err(f"original unreadable: {orig['path']} ({e.strerror})")
     t = folder / "transcription.md"
     if not t.is_file():
         err("transcription.md missing")
