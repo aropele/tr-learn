@@ -198,24 +198,7 @@ The VCMM explicitly allows for heavy-tailed distributions that assign realistic 
 These shocks are calibrated to replicate the historical frequency and magnitude of extreme outcomes observed in financial markets, ensuring that tail events occur in simulations at realistic rates. As Figure 8 shows, this approach results in return distributions for U.S. equities with materially fatter tails than a normal distribution with the same average return and volatility.
 
 > **Figure 8** (p. 12). Non-normal VCMM U.S. equity return distribution.
-> Clustered bar chart (histogram): x-axis is return buckets (<–1%, –1% to 1%, 1% to 3%, … 19% to 21%, >21%), y-axis "Probability" from 0 to 30%. Two series per bucket, "VCMM return distribution" (teal) and "Normal distribution" (orange). The normal distribution is tall and narrow, peaking at about 24% in the 7%–9% bucket; the VCMM distribution is flatter, peaking at about 15% in 7%–9%, with visibly more mass in both tails. Approximate bar heights read off the chart (probability, %):
->
-> | Return bucket | VCMM | Normal |
-> |---|---|---|
-> | <–1% | 4 | 0.3 |
-> | –1% to 1% | 5 | 1 |
-> | 1% to 3% | 7.7 | 4.5 |
-> | 3% to 5% | 11.5 | 11.6 |
-> | 5% to 7% | 14.2 | 20 |
-> | 7% to 9% | 14.8 | 24.3 |
-> | 9% to 11% | 13.8 | 20.2 |
-> | 11% to 13% | 11 | 11.8 |
-> | 13% to 15% | 7.8 | 4.5 |
-> | 15% to 17% | 4.6 | 1.3 |
-> | 17% to 19% | 2.5 | 0.2 |
-> | 19% to 21% | 1.5 | ~0 |
-> | >21% | 1.6 | ~0 |
->
+> Clustered bar chart (histogram): x-axis is return buckets (<–1%, –1% to 1%, 1% to 3%, … 19% to 21%, >21%), y-axis "Probability" from 0 to 30%. Two series per bucket, "VCMM return distribution" (teal) and "Normal distribution" (orange). No data labels are printed; the values below are approximate readings. The normal distribution is tall and narrow, peaking at about 24% in the 7%–9% bucket (about 20% in 5%–7% and 9%–11%), and is near zero below –1% (about 0.3%) and above 17%. The VCMM distribution is flatter, peaking at about 15% in 7%–9% (about 14% in 5%–7% and 9%–11%), with visibly more mass in both tails: about 4% below –1%, 5% in –1% to 1%, 8% in 1% to 3%, 5% in 15% to 17%, 2.5% in 17% to 19%, 1.5% in 19% to 21% and about 1.5% above 21%. The two are similar in the 3%–5% and 11%–13% buckets (about 11–12%).
 > Note: This figure shows the distribution of 10,000 equilibrium VCMM returns for U.S. equities and of 10,000 draws from a normal distribution with a mean of 8% and volatility of 18%.
 > Source: Vanguard calculations, as of December 31, 2025.
 > Any projections should be regarded as hypothetical in nature and do not reflect or guarantee future results.
