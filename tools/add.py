@@ -63,7 +63,8 @@ PUBLISHER_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
 def front_matter(meta: dict) -> str:
     body = "".join(
-        f"{k}: {'null' if meta[k] is None else meta[k]}\n" for k in FM_FIELDS
+        f"{k}: {'null' if meta[k] is None else json.dumps(meta[k], ensure_ascii=False)}\n"
+        for k in FM_FIELDS
     )
     return "---\n" + body + "original_prevails: true\n---\n"
 

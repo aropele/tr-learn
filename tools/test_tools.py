@@ -137,6 +137,14 @@ def test_kind_pdf_with_non_pdf_is_refused():
     assert "not a PDF" in m and not (repo / "sources").exists() and not (data / "sources").exists()
 
 
+def test_front_matter_is_yaml_safe():
+    fm = front_matter({"id": "i", "title": 'A: B "q"', "publisher": "v",
+                       "published": "2022", "url": "u"}).splitlines()
+    assert 'title: ' + json.dumps('A: B "q"') in fm and 'published: "2022"' in fm
+    assert "published: null" in front_matter({"id": "i", "title": "t", "publisher": "v",
+                                              "published": None, "url": "u"}).splitlines()
+
+
 def _fresh():
     repo, data, tmp = dirs()
     f = tmp / "x.pdf"
