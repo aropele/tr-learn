@@ -2,7 +2,11 @@
 
 Curated reading path generated with Claude on 2026-10-14 from https://claude.ai/code/artifact/ae1a8ac8-3a2f-4821-ad76-77022b215b7f; an index, not a source.
 
+Vanguard's research on portfolio construction follows the same sequence as an advisor's work: objectives and methodology, return expectations, choice of building blocks, implementation, adaptation to goals over time, client relationship.
+
 Phases: 1 Framework → 2 Expectations and SAA → 3 The building blocks → 4 Implementation → 5 Goals and decumulation → 6 Client relationship
+
+Each phase points to the numbered readings below; the general list on Vanguard research stays in the other document.
 
 ## Phase 1 — Framework and methodologies
 
