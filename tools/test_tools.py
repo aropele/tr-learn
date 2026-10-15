@@ -154,6 +154,22 @@ def test_body_present_no_warning():
     assert check_source(d / "source.json", data) == ([], [])
 
 
+def test_non_object_sidecar_is_error():
+    repo, data, d = _fresh()
+    (d / "source.json").write_text("[1]", encoding="utf-8")
+    errs, _ = check_source(d / "source.json", data)
+    assert len(errs) == 1 and "malformed" in errs[0]
+
+
+def test_original_missing_sha_is_error():
+    repo, data, d = _fresh()
+    m = _meta(d)
+    del m["original"]["sha256"]
+    _save(d, m)
+    errs, _ = check_source(d / "source.json", data)
+    assert len(errs) == 1 and "malformed" in errs[0]
+
+
 def test_theme_link_must_resolve():
     repo, data, d = _fresh()
     t = repo / "themes" / "t"

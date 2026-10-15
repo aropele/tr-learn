@@ -12,6 +12,8 @@ from pathlib import Path
 from add import ID_RE, MAX_SLUG, date_part, front_matter
 
 ROOT = Path(__file__).resolve().parent.parent
+REQUIRED = ("id", "title", "publisher", "authors", "published", "kind", "url",
+            "canonical_url", "fetched_at", "original", "notes")
 LINK_RE = re.compile(r"\]\(([^)\s]+)\)")
 
 
@@ -22,6 +24,10 @@ def check_source(sidecar: Path, data_root: Path) -> tuple[list[str], list[str]]:
         m = json.loads(sidecar.read_text(encoding="utf-8"))
     except (OSError, ValueError) as e:
         return [f"{folder.name}: unreadable source.json ({e})"], warns
+    orig = m.get("original", 0) if isinstance(m, dict) else 0
+    if (not isinstance(m, dict) or any(k not in m for k in REQUIRED)
+            or not (orig is None or (isinstance(orig, dict) and "path" in orig and "sha256" in orig))):
+        return [f"{folder.name}: malformed source.json (wrong shape or missing keys)"], warns
     sid = str(m.get("id"))
     err = lambda msg: errs.append(f"{sid}: {msg}")
     if sid != folder.name:
@@ -37,7 +43,6 @@ def check_source(sidecar: Path, data_root: Path) -> tuple[list[str], list[str]]:
             err("id date does not match published/fetched_at")
     except ValueError as e:
         err(str(e))
-    orig = m.get("original")
     if orig is not None:
         p = data_root / orig["path"]
         if not p.is_file():
