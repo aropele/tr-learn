@@ -14,10 +14,10 @@ The Vanguard framework identifies four methodologies (market-cap-weighted, model
 
 | # | Reading | Year | Why it matters |
 |---|---------|------|----------------|
-| 1 | Vanguard's portfolio construction framework · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/vanguards_portfolio_construction_framework.pdf) | 2022 | The reference text: maps client objectives → methodology → portfolio |
+| 1 | [Vanguard's portfolio construction framework](../../sources/vanguard/2022-00-00-vanguards-portfolio-construction-framework-from-investing-principles/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/vanguards_portfolio_construction_framework.pdf) | 2022 | The reference text: maps client objectives → methodology → portfolio |
 | 2 | Portfolio construction framework – Vanguard 365 UK summary · [original](https://www.vanguard.co.uk/professional/vanguard-365/investment-knowledge/portfolio-construction/portfolio-construction-framework) | – | European version, shows what is available in Europe |
-| 3 | Framework for constructing globally diversified portfolios · [original](https://corpaemdisp.essp.c1.vanguard.com/content/dam/corp/research/pdf/Vanguards-Framework-for-constructing-globally-diversified-portfolios-US-ISGCGP_062021_july12-update_Online.pdf) | 2021 | The basics: investment plan, asset allocation, choice of vehicles |
-| 4 | Vanguard's Principles for Investing Success · [original](https://externalcrewnet.vanguard.com/content/dam/corp/research/pdf/vanguards_principles_for_investing_success.pdf) | 2020 | The four principles the whole framework rests on |
+| 3 | [Framework for constructing globally diversified portfolios](../../sources/vanguard/2021-05-00-vanguards-framework-constructing-globally-diversified-portfolios/transcription.md) · [original](https://corpaemdisp.essp.c1.vanguard.com/content/dam/corp/research/pdf/Vanguards-Framework-for-constructing-globally-diversified-portfolios-US-ISGCGP_062021_july12-update_Online.pdf) | 2021 | The basics: investment plan, asset allocation, choice of vehicles |
+| 4 | [Vanguard's Principles for Investing Success](../../sources/vanguard/2023-00-00-vanguards-principles-investing-success/transcription.md) · [original](https://externalcrewnet.vanguard.com/content/dam/corp/research/pdf/vanguards_principles_for_investing_success.pdf) | 2020 | The four principles the whole framework rests on |
 
 ## Phase 2 — Return expectations and strategic asset allocation
 
@@ -25,11 +25,11 @@ The models work as a chain: the VCMM simulates returns, volatility and correlati
 
 | # | Reading | Year | Why it matters |
 |---|---------|------|----------------|
-| 5 | Vanguard Capital Markets Model · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/vanguard_capital_markets_model.pdf) | Sep 2026 | How the return expectations you will quote to clients are produced, and their limits |
-| 6 | The Vanguard Asset Allocation Model: active-passive-factor portfolios · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_vanguard_asset_allocation_model_an_investment_solution_for_active_passive_factor_portfolios.pdf) | Sep 2024 | Optimizes across three risk dimensions: alpha, systematic, factor |
+| 5 | [Vanguard Capital Markets Model](../../sources/vanguard/2026-09-00-vanguard-capital-markets-model/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/vanguard_capital_markets_model.pdf) | Sep 2026 | How the return expectations you will quote to clients are produced, and their limits |
+| 6 | [The Vanguard Asset Allocation Model: active-passive-factor portfolios](../../sources/vanguard/2024-09-00-vanguard-asset-allocation-model-investment-solution-active-passive/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_vanguard_asset_allocation_model_an_investment_solution_for_active_passive_factor_portfolios.pdf) | Sep 2024 | Optimizes across three risk dimensions: alpha, systematic, factor |
 | 7 | The V-family of models (VCMM, VAAM, VLCM, VFAM) · [original](https://corporate.vanguard.com/content/corporatesite/us/en/corp/what-we-think/v-family-models.html) | – | Map of how the models feed each other, with links to the white papers |
 | 8 | Models for portfolio construction (video) · [original](https://www.vanguard.co.uk/professional/vanguard-365/investment-knowledge/principles-of-investing/models-for-portfolio-construction) | – | A few-minute explanation, useful to reuse with clients |
-| 9 | Economic and market outlook 2026 · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/isg_vemo_2026.pdf) | Dec 2025 | Current 10-year expectations by asset class |
+| 9 | [Economic and market outlook 2026](../../sources/vanguard/2025-12-00-vanguard-economic-market-outlook-2026-ai-exuberance-economic-upside/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/isg_vemo_2026.pdf) | Dec 2025 | Current 10-year expectations by asset class |
 
 ## Phase 3 — The portfolio building blocks
 
@@ -39,11 +39,11 @@ A rule of thumb recurs throughout recent research: currency-hedged global bonds,
 |---|-------|---------|------|-------------|
 | 10 | Global equity | Manage risk with a global market-cap-weighted portfolio · [original](https://nl.vanguard/professional/insights/market-commentary/manage-risk-with-a-global-market-cap-weighted-portfolio) | – | Home bias reduces diversification; start from global weights |
 | 11 | Global equity | A case for global equity diversification · [original](https://www.vanguard.ca/content/dam/intl/americas/canada/en/documents/CHBP_062023_ENG_SECURED.pdf) | 2023 | Case study on the consequences of home bias |
-| 12 | Bonds | Going global with bonds (European version) · [original](https://www.ch.vanguard/content/dam/intl/europe/documents/going-global-with-bonds-the-benefits-of-a-more-global-fixed-income-allocation-eu-en-pro.pdf) | 2023 | Hedged global bonds: less volatility without lowering expected return |
-| 13 | Currency hedging | The FX dimension: currency hedging for multi-asset portfolios · [original](https://www.vanguard.co.uk/content/dam/intl/europe/documents/en/fas-fx-hedging-whitepaper-en-eu.pdf) | May 2026 | Hedge the bonds, leave equities mostly unhedged |
+| 12 | Bonds | [Going global with bonds (European version)](../../sources/vanguard/2023-05-00-going-global-with-bonds-benefits-more-global-fixed-income-allocation/transcription.md) · [original](https://www.ch.vanguard/content/dam/intl/europe/documents/going-global-with-bonds-the-benefits-of-a-more-global-fixed-income-allocation-eu-en-pro.pdf) | 2023 | Hedged global bonds: less volatility without lowering expected return |
+| 13 | Currency hedging | [The FX dimension: currency hedging for multi-asset portfolios](../../sources/vanguard/2026-05-00-fx-dimension-evaluating-currency-hedging-global-multi-asset-portfolios/transcription.md) · [original](https://www.vanguard.co.uk/content/dam/intl/europe/documents/en/fas-fx-hedging-whitepaper-en-eu.pdf) | May 2026 | Hedge the bonds, leave equities mostly unhedged |
 | 14 | Active/passive | The active/passive choice – Vanguard 365 · [original](https://www.vanguard.co.uk/professional/vanguard-365/investment-knowledge/portfolio-construction/active-passive-framework) | 2017, upd. | 4 variables: expected alpha, cost, active risk, tolerance for active risk |
 | 15 | Factors | Not all factors are created equal (summary) · [original](https://externalcrewnet.vanguard.com/content/corporatesite/us/en/corp/articles/map-to-building-factor-based-portfolios.html) | 2023 | Cap-weighted vs signal-weighted factor funds and how much to allocate |
-| 16 | Private equity | Right-sizing private equity in a portfolio · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/right_sizing_private_equity_in_a_portfolio_it_depends_on_more_than_you_think.pdf) | Mar 2026 | From 0% to 40% of equities, depending on liquidity and risk tolerance |
+| 16 | Private equity | [Right-sizing private equity in a portfolio](../../sources/vanguard/2026-03-00-right-sizing-private-equity-in-portfolio-it-depends-on-more-than-you/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/right_sizing_private_equity_in_a_portfolio_it_depends_on_more_than_you_think.pdf) | Mar 2026 | From 0% to 40% of equities, depending on liquidity and risk tolerance |
 
 ## Phase 4 — Implementation and maintenance
 
@@ -53,7 +53,7 @@ For many investors Vanguard finds annual rebalancing optimal: neither monthly no
 |---|---------|------|-------------|
 | 17 | Best practices for portfolio rebalancing · [original](https://aaii.com/journal/article/best-practices-for-portfolio-rebalancing) | 2010/2015 | There is no universal optimal frequency; costs, taxes and emotions matter |
 | 18 | Tuning the frequency for rebalancing (summary) · [original](https://externalcrewnet.vanguard.com/content/corporatesite/us/en/corp/articles/tuning-frequency-for-rebalancing.html) | 2022 | Calendar, threshold or mixed: annual wins on the risk-return trade-off |
-| 19 | The rebalancing edge · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_rebalancing_edge_optimizing_target_date_fund_rebalancing_through_threshold_based_strategies.pdf) | Dec 2024 | Threshold rebalancing as used in target-date funds |
+| 19 | [The rebalancing edge](../../sources/vanguard/2024-12-00-rebalancing-edge-optimizing-target-date-fund-rebalancing-through/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_rebalancing_edge_optimizing_target_date_fund_rebalancing_through_threshold_based_strategies.pdf) | Dec 2024 | Threshold rebalancing as used in target-date funds |
 | 20 | Press release on the Dynamic Active-Passive Model Portfolios · [original](https://corporate.vanguard.com/content/corporatesite/us/en/corp/who-we-are/pressroom/press-release-vanguard-launches-dynamic-active-passive-model-portfolio-series-for-financial-advisors-051826.html) | May 2026 | How the VCMM and VAAM are applied to model portfolios for advisors |
 
 ## Phase 5 — Goal-based portfolios and decumulation
@@ -62,7 +62,7 @@ When the objective is a future income, the portfolio changes over time: glide pa
 
 | # | Reading | Year | Key message |
 |---|---------|------|-------------|
-| 21 | Vanguard's approach to target-date funds · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/vanguards_approach_to_target_date_funds.pdf) | Nov 2022 | The Life-Cycle Investing Model and the construction of the glide path |
+| 21 | [Vanguard's approach to target-date funds](../../sources/vanguard/2022-11-00-vanguards-approach-to-target-date-funds/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/vanguards_approach_to_target_date_funds.pdf) | Nov 2022 | The Life-Cycle Investing Model and the construction of the glide path |
 | 22 | From assets to income: a goals-based approach to retirement spending (PlanSponsor summary) · [original](https://www.plansponsor.com/shaping-retirement-income-takes-a-dynamic-effort/) | – | Withdrawal rate, tax order of withdrawals, stability vs sustainability |
 | 23 | Dynamic spending rule (PlanSponsor summary) · [original](https://plansponsor.com/vanguard-tests-approach-decumulation-dynamic-spending-rule) | 2020 | Cutting spending after downturns preserves long-term spending power |
 
