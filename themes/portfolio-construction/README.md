@@ -28,7 +28,7 @@ The models work as a chain: the VCMM simulates returns, volatility and correlati
 | 5 | [Vanguard Capital Markets Model](../../sources/vanguard/2026-09-00-vanguard-capital-markets-model/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/vanguard_capital_markets_model.pdf) | Sep 2026 | How the return expectations you will quote to clients are produced, and their limits |
 | 6 | [The Vanguard Asset Allocation Model: active-passive-factor portfolios](../../sources/vanguard/2024-09-00-vanguard-asset-allocation-model-investment-solution-active-passive/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_vanguard_asset_allocation_model_an_investment_solution_for_active_passive_factor_portfolios.pdf) | Sep 2024 | Optimizes across three risk dimensions: alpha, systematic, factor |
 | 7 | [The V-family of models (VCMM, VAAM, VLCM, VFAM)](../../sources/vanguard/2026-10-15-vanguard-family-suite-proprietary-models/transcription.md) · [original](https://corporate.vanguard.com/content/corporatesite/us/en/corp/what-we-think/v-family-models.html) | – | Map of how the models feed each other, with links to the white papers |
-| 8 | [Models for portfolio construction (video)](../../sources/vanguard/2026-01-04-models-portfolio-construction/transcription.md) · [original](https://www.vanguard.co.uk/professional/vanguard-365/investment-knowledge/principles-of-investing/models-for-portfolio-construction) | – | A few-minute explanation, useful to reuse with clients |
+| 8 | [Models for portfolio construction (video)](../../sources/vanguard/2026-10-15-models-portfolio-construction/transcription.md) · [original](https://www.vanguard.co.uk/professional/vanguard-365/investment-knowledge/principles-of-investing/models-for-portfolio-construction) | – | A few-minute explanation, useful to reuse with clients |
 | 9 | [Economic and market outlook 2026](../../sources/vanguard/2025-12-00-vanguard-economic-market-outlook-2026-ai-exuberance-economic-upside/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/isg_vemo_2026.pdf) | Dec 2025 | Current 10-year expectations by asset class |
 
 ## Phase 3 — The portfolio building blocks
@@ -63,8 +63,8 @@ When the objective is a future income, the portfolio changes over time: glide pa
 | # | Reading | Year | Key message |
 |---|---------|------|-------------|
 | 21 | [Vanguard's approach to target-date funds](../../sources/vanguard/2022-11-00-vanguards-approach-to-target-date-funds/transcription.md) · [original](https://corporate.vanguard.com/content/dam/corp/research/pdf/vanguards_approach_to_target_date_funds.pdf) | Nov 2022 | The Life-Cycle Investing Model and the construction of the glide path |
-| 22 | [From assets to income: a goals-based approach to retirement spending (PlanSponsor summary)](../../sources/plansponsor/2016-09-21-shaping-retirement-income-takes-dynamic-effort/transcription.md) · [original](https://www.plansponsor.com/shaping-retirement-income-takes-a-dynamic-effort/) | – | Withdrawal rate, tax order of withdrawals, stability vs sustainability |
-| 23 | [Dynamic spending rule (PlanSponsor summary)](../../sources/plansponsor/2020-11-11-vanguard-tests-approach-to-decumulation-dynamic-spending-rule/transcription.md) · [original](https://plansponsor.com/vanguard-tests-approach-decumulation-dynamic-spending-rule) | 2020 | Cutting spending after downturns preserves long-term spending power |
+| 22 | [From assets to income: a goals-based approach to retirement spending](../../sources/vanguard/2020-04-00-from-assets-to-income-goals-based-approach-to-retirement-spending/transcription.md) · [original](https://www.plansponsor.com/shaping-retirement-income-takes-a-dynamic-effort/) | – | Withdrawal rate, tax order of withdrawals, stability vs sustainability |
+| 23 | [Dynamic spending rule](../../sources/vanguard/2020-11-00-guiding-your-clients-through-stormy-weather-sustainable-withdrawal/transcription.md) · [original](https://plansponsor.com/vanguard-tests-approach-decumulation-dynamic-spending-rule) | 2020 | Cutting spending after downturns preserves long-term spending power |
 
 Papers 22 and 23 are linked through third-party summaries: look up the title in the [Vanguard library](https://corporate.vanguard.com/content/corporatesite/us/en/corp/what-we-think/index.html) for the original PDF.
 
@@ -74,9 +74,9 @@ According to Advisor's Alpha, most of the value added by an advisor (up to about
 
 | # | Reading | Year | Key message |
 |---|---------|------|-------------|
-| 24 | [Quantifying Adviser's Alpha in the UK](../../sources/vanguard/2025-06-11-quantifying-advisers-alpha-in-uk-putting-value-on-your-value/transcription.md) · [original](https://www.vanguard.co.uk/professional/research/quantifying-advisers-alpha-in-the-uk-putting-a-value-on-your-value) | Latest ed. | European version: 7 value-adding activities, quantified |
+| 24 | [Quantifying Adviser's Alpha in the UK](../../sources/vanguard/2025-06-00-quantifying-advisers-alpha-in-uk-putting-value-on-your-value/transcription.md) · [original](https://www.vanguard.co.uk/professional/research/quantifying-advisers-alpha-in-the-uk-putting-a-value-on-your-value) | Latest ed. | European version: 7 value-adding activities, quantified |
 | 25 | Celebrating Vanguard Advisor's Alpha: 25 years · [original](https://advisors.vanguard.com/insights/article/celebrating-25-years-of-working-to-improve-outcomes-for-you-and-your-clients) | Latest ed. | Adds the tax-loss harvesting module |
-| 26 | [Active vs passive investing – which is better? (video)](../../sources/vanguard/2026-01-04-active-vs-passive-investing-which-is-better/transcription.md) · [original](https://www.vanguard.co.uk/professional/vanguard-365/investment-knowledge/portfolio-construction/active-vs-passive-investing-which-is-better) | – | How to explain the active/passive choice to the client |
+| 26 | [Active vs passive investing – which is better? (video)](../../sources/vanguard/2026-10-15-active-vs-passive-investing-which-is-better/transcription.md) · [original](https://www.vanguard.co.uk/professional/vanguard-365/investment-knowledge/portfolio-construction/active-vs-passive-investing-which-is-better) | – | How to explain the active/passive choice to the client |
 
 ## Training for advisors
 
