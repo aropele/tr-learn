@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fondo pensione e fisco</title>
+<style>
+:root {
+  --bg: #f6f6f3; --surface: #fff; --ink: #1c2230; --muted: #5d6575; --line: #dcdfe5;
+  --accent: #1f5f8b; --good: #2e7d4f; --bad: #a33a2a; --note-bg: #fdf4e3; --note-line: #e0bf86;
+  --mono: ui-monospace, Consolas, monospace; color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12161d; --surface: #1a2029; --ink: #e5e8ee; --muted: #9aa2b1; --line: #2e3643;
+  --accent: #7fb6e0; --good: #6cc592; --bad: #e88a7a; --note-bg: #2a2416; --note-line: #6b5a32; color-scheme: dark;
+} }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 860px; margin: 0 auto; padding: 24px 16px 80px; }
+h1 { font-size: 1.9rem; line-height: 1.2; margin: .2em 0; }
+h2 { margin-top: 2.4em; padding-top: .6em; border-top: 2px solid var(--line); }
+h3 { margin-top: 1.6em; }
+a { color: var(--accent); }
+nav ol { columns: 2; padding-left: 1.2em; }
+.sub { color: var(--muted); }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+.note { background: var(--note-bg); border-left: 4px solid var(--note-line); padding: 10px 14px; margin: 16px 0; border-radius: 4px; }
+.src { font-size: .82rem; color: var(--muted); }
+.wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: var(--surface); margin: 12px 0; font-size: .93rem; }
+th, td { border: 1px solid var(--line); padding: 6px 9px; text-align: left; vertical-align: top; }
+th { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+pre { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px; overflow-x: auto; font: .85rem/1.45 var(--mono); }
+.pos { color: var(--good); font-weight: 600; } .neg { color: var(--bad); font-weight: 600; }
+.calc label { display: block; margin: 8px 0 2px; font-weight: 600; }
+.calc input { width: 100%; max-width: 240px; padding: 6px 8px; font: inherit; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); }
+.calc output { display: block; margin-top: 12px; font-variant-numeric: tabular-nums; }
+@media (max-width: 600px) { nav ol { columns: 1; } h1 { font-size: 1.5rem; } }
+</style>
+</head>
+<body>
+<main>
+<p class="sub">tr-learn · tema <a href="README.md">pension-fund-vs-etf</a> · studio personale, non consulenza · ottobre 2026</p>
+<h1>Fondo pensione e fisco: dal versamento di 5.300 € alla pensione</h1>
+<p>Come funziona la fiscalità della previdenza complementare per chi aderisce dal 2007, con un unico lavoratore di esempio seguito dalla busta paga fino a ogni modo di uscire dal fondo. Dove una regola o un numero non viene dalle fonti del repo è segnato con <b>⚠</b>.</p>
+
+<nav class="box"><b>Indice</b>
+<ol>
+<li><a href="#mappa">La mappa: E-T-T</a></li>
+<li><a href="#ded">Deduzione vs detrazione</a></li>
+<li><a href="#busta">Dalla busta paga al risparmio IRPEF</a></li>
+<li><a href="#tetto">Cosa entra nei 5.300 €</a></li>
+<li><a href="#accumulo">Accumulo: 20% e 12,5%</a></li>
+<li><a href="#uscita">L'aliquota d'uscita 15% → 9%</a></li>
+<li><a href="#strade">Tutte le strade per uscire</a></li>
+<li><a href="#bilancio">Il bilancio: quanto si guadagna</a></li>
+<li><a href="#etf">Confronto con un ETF</a></li>
+<li><a href="#calc">Calcolatore</a></li>
+<li><a href="#fonti">Fonti e limiti</a></li>
+</ol></nav>
+
+<h2 id="mappa">1. La mappa: tre momenti fiscali</h2>
+<p>Il fondo pensione è tassato in tre momenti. Rispetto al risparmio normale, il primo momento è esente, il secondo è agevolato, il terzo è agevolato e posticipato.</p>
+<pre>
+ VERSAMENTO                 ACCUMULO                       PRESTAZIONE
+ (ogni anno)                (ogni anno)                    (pensione o prima)
+ ──────────────             ──────────────                 ──────────────────────────
+ contributi DEDOTTI         rendimenti tassati nel fondo   tassata solo la parte che
+ dal reddito fino a         20% sul risultato netto        non è mai stata tassata:
+ 5.300 €/anno               12,5% sulla quota titoli       contributi dedotti + TFR
+ → risparmi IRPEF al        di Stato / white list          → 15%, -0,3 punti/anno oltre
+   tuo marginale            (vs 26% del risparmio            il 15° anno, minimo 9%
+   (23 / 33 / 43%)            ordinario)                   → 23% per anticipi "liberi"
+                                                             e riscatti per dimissioni
+        E                          T                              T
+</pre>
+<p class="src">Fonti: Fondo Poste, <i>Documento sul regime fiscale</i> (31/07/2026), §1–3; COVIP, <i>Guida introduttiva</i>, “La fiscalità”. L'OCSE classifica l'Italia come ETT. Scaglioni IRPEF 2026 come nel README del tema.</p>
+
+<h2 id="ded">2. Deduzione e detrazione: la differenza</h2>
+<div class="wrap"><table>
+<tr><th></th><th>Deduzione (oneri deducibili)</th><th>Detrazione (oneri detraibili)</th></tr>
+<tr><td>Agisce su</td><td><b>il reddito</b>: abbassa l'imponibile su cui si calcola l'IRPEF</td><td><b>l'imposta</b>: si sottrae dall'IRPEF già calcolata</td></tr>
+<tr><td>Quanto vale</td><td>spesa × <b>aliquota marginale</b> (23/33/43%): vale di più per chi guadagna di più</td><td>spesa × percentuale fissa (es. 19%) ⚠: vale uguale per tutti</td></tr>
+<tr><td>Esempio tipico</td><td><b>contributi al fondo pensione</b> (fino a 5.300 €)</td><td>spese mediche, interessi del mutuo prima casa ⚠</td></tr>
+<tr><td>Se l'imposta è già zero</td><td>non serve a nulla (nessun rimborso)</td><td>non serve a nulla (nessun rimborso)</td></tr>
+</table></div>
+
+<h3>Esempio: 1.000 € dedotti contro 1.000 € detratti al 19%</h3>
+<div class="wrap"><table>
+<tr><th>Reddito imponibile</th><th>Marginale</th><th class="n">1.000 € dedotti</th><th class="n">1.000 € detratti al 19% ⚠</th></tr>
+<tr><td>20.000 €</td><td>23%</td><td class="n">230 €</td><td class="n">190 €</td></tr>
+<tr><td>40.000 €</td><td>33%</td><td class="n">330 €</td><td class="n">190 €</td></tr>
+<tr><td>70.000 €</td><td>43%</td><td class="n">430 €</td><td class="n">190 €</td></tr>
+</table></div>
+<p>Calcolo della deduzione con imponibile 40.000 €: IRPEF su 40.000 = 28.000 × 23% + 12.000 × 33% = <b>10.400 €</b>; IRPEF su 39.000 = 6.440 + 11.000 × 33% = <b>10.070 €</b>; differenza <b>330 €</b>. La deduzione “taglia” dallo scaglione più alto.</p>
+<div class="note"><b>Attenzione al confine tra scaglioni.</b> Se la deduzione scavalca la soglia dei 28.000 €, la parte sotto soglia risparmia solo il 23%. Imponibile 30.000 €, deduzione 5.300 €: 2.000 × 33% + 3.300 × 23% = <b>1.419 €</b>, non 5.300 × 33% = 1.749 €.</div>
+<p class="src">⚠ La detrazione al 19% e gli esempi di oneri detraibili non vengono dalle fonti del repo (art. 15 TUIR, conoscenza generale). La definizione di deducibilità è quella del glossario COVIP (“Le parole della previdenza”).</p>
+
+<h2 id="busta">3. Dalla busta paga al risparmio IRPEF</h2>
+<p>Lavoratore di esempio: <b>Giulia</b>, 32 anni, dipendente privata, RAL 40.000 €, iscritta al fondo negoziale del suo contratto. Accordo collettivo di esempio: 1,5% a carico suo, 1,5% a carico del datore (come negli esempi COVIP), più tutto il TFR.</p>
+
+<h3>Passo 1: dalla RAL all'imponibile</h3>
+<div class="wrap"><table>
+<tr><th>Voce</th><th class="n">Importo</th><th>Nota</th></tr>
+<tr><td>RAL</td><td class="n">40.000 €</td><td></td></tr>
+<tr><td>− contributi INPS a carico del lavoratore (~9,19%) ⚠</td><td class="n">− 3.676 €</td><td>già sottratti prima dell'IRPEF</td></tr>
+<tr><td>= imponibile IRPEF senza fondo</td><td class="n">36.324 €</td><td></td></tr>
+<tr><td>IRPEF lorda</td><td class="n">9.187 €</td><td>28.000 × 23% + 8.324 × 33%</td></tr>
+</table></div>
+
+<h3>Passo 2: quanto entra nel fondo e quanto è deducibile</h3>
+<div class="wrap"><table>
+<tr><th>Flusso annuo verso il fondo</th><th class="n">Importo</th><th>Conta nei 5.300 €?</th></tr>
+<tr><td>Contributo di Giulia da contratto (1,5% RAL)</td><td class="n">600 €</td><td>sì</td></tr>
+<tr><td>Contributo del datore (1,5% RAL)</td><td class="n">600 €</td><td><b>sì</b> (è reddito di Giulia, poi dedotto: effetto netto zero tasse)</td></tr>
+<tr><td>Contributo volontario aggiuntivo per arrivare al tetto</td><td class="n">4.100 €</td><td>sì</td></tr>
+<tr><td><b>Totale deducibile</b></td><td class="n"><b>5.300 €</b></td><td>tetto pieno</td></tr>
+<tr><td>TFR (6,91% RAL)</td><td class="n">2.764 €</td><td><b>no</b>: non è tassato quando entra, quindi non si deduce</td></tr>
+<tr><td><b>Totale versato nell'anno</b></td><td class="n"><b>8.064 €</b></td><td></td></tr>
+</table></div>
+
+<h3>Passo 3: il risparmio d'imposta</h3>
+<p>I contributi di tasca di Giulia sono 600 + 4.100 = <b>4.700 €</b>. Il contributo del datore non le costa nulla e non viene tassato.</p>
+<pre>
+imponibile senza fondo        36.324 €   → IRPEF 9.187 €
+imponibile con fondo          31.624 €   → IRPEF 7.636 €     (36.324 − 4.700)
+                                             ─────────
+risparmio IRPEF                              1.551 €  = 4.700 × 33%
+costo netto reale dei 4.700 € versati        3.149 €
+</pre>
+<p>In pratica: ogni 100 € che Giulia mette nel fondo le costano 67 € di stipendio netto. Il datore aggiunge 600 € gratis e il TFR (2.764 €) prende la stessa strada.</p>
+
+<h3>Come arriva il risparmio ⚠</h3>
+<div class="wrap"><table>
+<tr><th>Se versi…</th><th>la deduzione arriva…</th></tr>
+<tr><td>tramite trattenuta in busta paga (fondo negoziale, o fondo aperto con accordo col datore)</td><td>subito, mese per mese: il sostituto d'imposta calcola le ritenute sull'imponibile già ridotto. Il netto in busta scende meno del contributo</td></tr>
+<tr><td>con bonifico diretto al fondo (versamenti volontari, PIP individuale)</td><td>l'anno dopo, nel 730 / Redditi: rimborso in busta paga (estate) o minor saldo da pagare</td></tr>
+</table></div>
+<p class="src">⚠ Il meccanismo operativo in busta paga e nel 730 non è descritto nelle fonti del repo (prassi del sostituto d'imposta). La quota INPS del 9,19% è un'approssimazione generica per un dipendente privato.</p>
+
+<h3>Quanto vale il tetto pieno per scaglione</h3>
+<div class="wrap"><table>
+<tr><th>Imponibile prima della deduzione</th><th class="n">Risparmio deducendo 5.300 €</th><th>Commento</th></tr>
+<tr><td>22.000 €</td><td class="n">1.219 €</td><td>tutto al 23%</td></tr>
+<tr><td>30.000 €</td><td class="n">1.419 €</td><td>a cavallo: 2.000 al 33%, 3.300 al 23%</td></tr>
+<tr><td>36.324 € (Giulia)</td><td class="n">1.749 €</td><td>tutto al 33%</td></tr>
+<tr><td>60.000 €</td><td class="n">2.279 €</td><td>tutto al 43%</td></tr>
+<tr><td>imposta già azzerata da detrazioni (incapiente)</td><td class="n">0 €</td><td>la deduzione non genera rimborsi; i contributi vanno comunicati come “non dedotti”</td></tr>
+</table></div>
+<p class="src">Il risparmio può differire leggermente: le detrazioni per lavoro dipendente dipendono dal reddito complessivo, che la deduzione abbassa ⚠. Il calcolo qui usa solo l'IRPEF lorda.</p>
+
+<h2 id="tetto">4. Cosa entra nei 5.300 € (e cosa no)</h2>
+<div class="wrap"><table>
+<tr><th>Voce</th><th>Nel tetto?</th><th>Trattamento</th></tr>
+<tr><td>Contributo proprio, anche volontario</td><td>sì</td><td>deducibile</td></tr>
+<tr><td>Contributo del datore (incluso welfare classificato “datore”)</td><td>sì</td><td>deducibile</td></tr>
+<tr><td>Contributi versati per familiari fiscalmente a carico (es. figli)</td><td>sì, per la parte non dedotta da loro</td><td>deducibili da chi li versa, dentro il suo tetto</td></tr>
+<tr><td>Reintegro di anticipazioni passate</td><td>sì</td><td>oltre il tetto: credito d'imposta pari all'imposta pagata sull'anticipo, pro quota</td></tr>
+<tr><td>TFR</td><td><b>no</b></td><td>mai tassato in entrata, tassato in uscita</td></tr>
+<tr><td>Premio di risultato convertito in contributo</td><td><b>no, fuori tetto</b></td><td>esente sempre: niente IRPEF in entrata, niente tassa in uscita</td></tr>
+<tr><td>Contributi oltre 5.300 €</td><td>—</td><td>non dedotti: comunicarli al fondo entro il 31/12 dell'anno successivo, così in uscita sono esenti</td></tr>
+</table></div>
+
+<h3>Il bonus “prima occupazione”</h3>
+<p>Chi ha la prima occupazione dopo il 1/1/2007 e nei primi 5 anni di iscrizione versa meno di 26.500 € (5 × 5.300) può recuperare la differenza dal 6° al 25° anno, fino a <b>2.650 € l'anno</b> oltre i 5.300.</p>
+<pre>
+Marco, primo lavoro, primi 5 anni: versa 2.000 €/anno  → 10.000 €
+spazio non usato:  26.500 − 10.000  = 16.500 €
+dal 6° anno può dedurre fino a 5.300 + 2.650 = 7.950 €/anno,
+finché non ha recuperato i 16.500 € (≈ 6,2 anni di 2.650 €), entro 20 anni
+a un marginale del 33%: 16.500 × 33% = 5.445 € di IRPEF recuperata in più
+</pre>
+<p class="src">Per chi ha aderito prima del 2026 lo spazio non usato si calcola con 5.164,57 € per gli anni fino al 2025 e 5.300 € dal 2026 (Fondo Poste §1.1). Autonomi in regime forfettario: niente deduzione, ma contributi esenti in uscita se comunicati (COVIP, esempio di Vittoria).</p>
+
+<h2 id="accumulo">5. Accumulo: i rendimenti pagano 20% (12,5% sui titoli di Stato)</h2>
+<p>Ogni anno il fondo paga un'imposta sostitutiva sul risultato netto maturato, anche se non vendi nulla. I titoli di Stato italiani e della white list entrano nella base al 62,5%, così pagano il 12,5% effettivo.</p>
+<pre>
+posizione di Giulia a inizio anno     50.000 €
+rendimento lordo dell'anno 6%          3.000 €, di cui:
+   da titoli di Stato (30% portafoglio)   900 € × 12,5% =  112,50 €
+   da azioni / altro                     2.100 € × 20%   =  420,00 €
+imposta totale                                              532,50 €   (17,75% effettivo)
+stesso guadagno su un ETF                                   780,00 €   (26%, ma solo alla vendita)
+</pre>
+<p>Due differenze dal risparmio ordinario: l'aliquota è più bassa (20% contro 26%), ma è pagata ogni anno invece che alla vendita, quindi si perde l'effetto del differimento. I rendimenti pubblicati da COVIP sono già al netto di costi e di questa imposta.</p>
+
+<h2 id="uscita">6. L'aliquota d'uscita: 15% che scende fino al 9%</h2>
+<p>All'uscita si tassa solo la parte mai tassata: <b>contributi dedotti + TFR</b>. Restano fuori i rendimenti (già tassati), i contributi non dedotti e i premi di risultato.</p>
+<div class="wrap"><table>
+<tr><th>Anni di partecipazione</th><th class="n">≤ 15</th><th class="n">20</th><th class="n">25</th><th class="n">30</th><th class="n">35 e oltre</th></tr>
+<tr><td>Aliquota (15% − 0,3 × anni oltre il 15°)</td><td class="n">15%</td><td class="n">13,5%</td><td class="n">12%</td><td class="n">10,5%</td><td class="n">9%</td></tr>
+</table></div>
+<p>Gli anni contano dalla prima iscrizione a qualsiasi forma complementare, se la posizione non è mai stata riscattata del tutto (attestazione dell'altro fondo). Per questo conviene iscriversi presto anche con poco.</p>
+
+<h3>Il montante di Giulia dopo 35 anni</h3>
+<p>Ipotesi semplificate: 8.064 € versati ogni anno per 35 anni (stipendio costante), rendimento <b>3,5% annuo già netto di costi e imposta</b> (vicino al 4,8% netto dei comparti azionari negoziali COVIP 2015–2025, ridotto per prudenza). Valori nominali.</p>
+<div class="wrap"><table>
+<tr><th>Componente</th><th class="n">Importo</th><th>Tassata all'uscita?</th></tr>
+<tr><td>Contributi dedotti (5.300 × 35)</td><td class="n">185.500 €</td><td>sì</td></tr>
+<tr><td>TFR (2.764 × 35)</td><td class="n">96.740 €</td><td>sì</td></tr>
+<tr><td>Rendimenti netti accumulati</td><td class="n">255.419 €</td><td>no, già tassati</td></tr>
+<tr><td><b>Montante</b></td><td class="n"><b>537.659 €</b></td><td>quota imponibile 282.240 / 537.659 = <b>52,5%</b></td></tr>
+</table></div>
+<p>Con 35 anni l'aliquota è 9%, applicata al 52,5% di ogni euro che esce: <b>tassa effettiva ≈ 4,7%</b> su quanto incassato.</p>
+
+<h2 id="strade">7. Tutte le strade per uscire, con i numeri</h2>
+<div class="wrap"><table>
+<tr><th>Strada</th><th>Quando</th><th>Quanto</th><th>Aliquota sulla parte imponibile</th></tr>
+<tr><td>Rendita vitalizia</td><td>requisiti pensione obbligatoria + 5 anni di iscrizione</td><td>fino al 100%</td><td>15% → 9%</td></tr>
+<tr><td>Capitale + rendita</td><td>idem</td><td>capitale max 50%</td><td>15% → 9%</td></tr>
+<tr><td>Tutto in capitale</td><td>montante esiguo, o “vecchio iscritto” ante 29/4/1993</td><td>100%</td><td>15% → 9%</td></tr>
+<tr><td>Rendita a durata definita / prelievi liberi (dal 1/7/2026)</td><td>al pensionamento</td><td>secondo le regole del fondo</td><td>15% → 9% (come il capitale)</td></tr>
+<tr><td>RITA</td><td>cessato il lavoro, ≤ 5 anni alla vecchiaia + 20 anni di contributi; o inoccupato &gt; 24 mesi e ≤ 10 anni alla vecchiaia; sempre 5 anni di iscrizione</td><td>tutto o parte, a rate</td><td>15% → 9% (o tassazione ordinaria a scelta)</td></tr>
+<tr><td>Anticipazione spese sanitarie gravissime</td><td>in ogni momento</td><td>max 75%</td><td>15% → 9%</td></tr>
+<tr><td>Anticipazione prima casa (acquisto/ristrutturazione, per sé o figli)</td><td>dopo 8 anni</td><td>max 75%</td><td class="neg">23%</td></tr>
+<tr><td>Anticipazione “ulteriori esigenze”</td><td>dopo 8 anni</td><td>max 30%</td><td class="neg">23%</td></tr>
+<tr><td>Riscatto 50%: inoccupazione 12–48 mesi, mobilità, CIG</td><td>al verificarsi</td><td>50%</td><td>15% → 9%</td></tr>
+<tr><td>Riscatto totale: invalidità &gt; 2/3, inoccupazione &gt; 48 mesi</td><td>al verificarsi</td><td>100%</td><td>15% → 9%</td></tr>
+<tr><td>Riscatto per dimissioni, licenziamento, altre cause</td><td>perdita requisiti</td><td>100%</td><td class="neg">23%</td></tr>
+<tr><td>Riscatto per decesso (eredi/beneficiari)</td><td>—</td><td>100%</td><td>15% → 9%, esclusa dall'imposta di successione</td></tr>
+</table></div>
+<p class="src">Le anticipazioni complessive non possono superare il 75% dei versamenti (TFR incluso) più le plusvalenze realizzate; si possono reintegrare. La 23% è una ritenuta fissa, che non scende con gli anni.</p>
+
+<h3>A. Pensione a 67 anni, tutto in rendita vitalizia</h3>
+<pre>
+montante                          537.659 €
+coefficiente di conversione ≈ 4,3% ⚠       → rendita lorda 23.119 €/anno
+imposta: 23.119 × 52,5% × 9%                 −  1.092 €
+rendita netta                                  22.027 €/anno  (≈ 1.836 €/mese)
+</pre>
+<p class="src">⚠ Il 4,3% è ricavato dall'esempio COVIP (142.000 € → 6.100 € di prima rata a 67 anni); il coefficiente reale dipende da età, sesso, tavole e tasso tecnico del fondo. Durante l'erogazione, i rendimenti della rendita sono tassati al 26% (12,5% sulla quota titoli di Stato).</p>
+
+<h3>B. 50% capitale + 50% rendita</h3>
+<pre>
+capitale lordo  268.830 € − 268.830 × 52,5% × 9% (12.701 €) = 256.129 € netti, subito
+rendita lorda    11.560 €/anno                                 →  11.014 €/anno netti
+</pre>
+
+<h3>C. Rendita a durata definita (20 anni) o prelievi liberi</h3>
+<pre>
+537.659 / 20 anni ≈ 26.883 €/anno lordi (senza contare i rendimenti sul residuo)
+imposta 26.883 × 52,5% × 9% = 1.270 €   →   25.613 €/anno netti
+il residuo resta investito nel fondo; in caso di decesso va ai beneficiari
+</pre>
+<p class="src">Novità della Legge 199/2025: Fondo Poste avverte che si attendono chiarimenti dell'Agenzia delle Entrate su queste prestazioni.</p>
+
+<h3>D. RITA: smettere di lavorare a 63 anni</h3>
+<p>Giulia lascia il lavoro a 63 anni, ha più di 20 anni di contributi INPS e mancano 4 anni ai 67. Chiede 200.000 € in RITA per 4 anni.</p>
+<pre>
+50.000 €/anno lordi × 52,5% × 9% = 2.363 €   →   47.637 €/anno netti per 4 anni
+il resto del montante (≈ 337.659 € più rendimenti) resta per la pensione a 67 anni
+</pre>
+<p>Mentre aspetta, la parte non ancora erogata resta investita. La RITA permette di colmare il “buco” tra uscita dal lavoro e pensione pubblica con la tassazione agevolata invece che al 23%.</p>
+
+<h3>E. Anticipazioni dopo 10 anni (aliquota ancora al 15%)</h3>
+<p>Dopo 10 anni Giulia ha ≈ <b>94.602 €</b>, di cui 80.640 € contributi dedotti + TFR (85,2% imponibile).</p>
+<div class="wrap"><table>
+<tr><th>Causale</th><th class="n">Lordo</th><th class="n">Imposta</th><th class="n">Netto</th></tr>
+<tr><td>Prima casa, 75%</td><td class="n">70.951 €</td><td class="n">70.951 × 85,2% × 23% = 13.910 €</td><td class="n">57.041 €</td></tr>
+<tr><td>Ulteriori esigenze, 30%</td><td class="n">28.381 €</td><td class="n">5.564 €</td><td class="n">22.817 €</td></tr>
+<tr><td>Spese sanitarie, 75%</td><td class="n">70.951 €</td><td class="n">70.951 × 85,2% × 15% = 9.072 €</td><td class="n">61.879 €</td></tr>
+</table></div>
+<p>Se poi reintegra l'anticipo, anche oltre i 5.300 €, recupera come credito d'imposta la tassa pagata, in proporzione a quanto reintegra.</p>
+
+<h3>F. Riscatti dopo 10 anni</h3>
+<div class="wrap"><table>
+<tr><th>Causale</th><th class="n">Lordo</th><th class="n">Imposta</th><th class="n">Netto</th></tr>
+<tr><td>Dimissioni e nuovo lavoro senza fondo (riscatto totale)</td><td class="n">94.602 €</td><td class="n">80.640 × 23% = 18.547 €</td><td class="n">76.055 €</td></tr>
+<tr><td>Disoccupata da 18 mesi (riscatto 50%)</td><td class="n">47.301 €</td><td class="n">47.301 × 85,2% × 15% = 6.048 €</td><td class="n">41.253 €</td></tr>
+</table></div>
+<div class="note">Cambiare lavoro non obbliga a riscattare: la posizione si può <b>trasferire</b> o lasciare nel fondo. Riscattare per dimissioni costa il 23% e azzera l'anzianità che fa scendere l'aliquota al 9%.</div>
+
+<h2 id="bilancio">8. Il bilancio: deduzione in entrata contro tassa in uscita</h2>
+<p>Il vantaggio sui contributi è la differenza tra l'aliquota a cui li hai dedotti e quella a cui escono. Per ogni 100 € dedotti:</p>
+<div class="wrap"><table>
+<tr><th>Marginale in entrata</th><th>Uscita</th><th class="n">Guadagno fiscale</th></tr>
+<tr><td>43%</td><td>pensione, 35+ anni (9%)</td><td class="n pos">+34 €</td></tr>
+<tr><td>33%</td><td>pensione, 35+ anni (9%)</td><td class="n pos">+24 €</td></tr>
+<tr><td>33%</td><td>pensione, ≤ 15 anni (15%)</td><td class="n pos">+18 €</td></tr>
+<tr><td>33%</td><td>anticipo casa / dimissioni (23%)</td><td class="n pos">+10 €</td></tr>
+<tr><td>23%</td><td>pensione, 35+ anni (9%)</td><td class="n pos">+14 €</td></tr>
+<tr><td>23%</td><td>anticipo casa / dimissioni (23%)</td><td class="n">0 €</td></tr>
+<tr><td>0% (incapiente, forfettario)</td><td>contributi comunicati come non dedotti</td><td class="n">0 €, uscita esente</td></tr>
+</table></div>
+<p>A questo si aggiungono: TFR tassato 9–15% invece che all'aliquota media IRPEF (esempio COVIP: 100.000 € di TFR → 91.000 € dal fondo contro 77.000 € lasciato in azienda), rendimenti al 20% invece del 26%, contributo del datore. E si sottraggono: costi del fondo (ISC) e soldi bloccati fino alla pensione salvo le uscite sopra.</p>
+
+<h2 id="etf">9. Lo stesso sforzo in un ETF</h2>
+<p>Giulia può versare 4.700 € lordi nel fondo, oppure prendere quei soldi in busta, pagare il 33% e investire i 3.149 € netti in un ETF. Stesso sacrificio netto, 35 anni. Ipotesi: mercato 5% nominale annuo, fondo negoziale con ISC 0,47% e imposta 20% annua, PIP con ISC 2,17% (medie COVIP), ETF con TER 0,2% e bollo 0,2% (approx. come costo annuo), 26% sulla plusvalenza alla vendita.</p>
+<div class="wrap"><table>
+<tr><th>Strada</th><th class="n">Rendimento netto annuo</th><th class="n">Valore a 35 anni</th><th class="n">Netto dopo l'uscita</th></tr>
+<tr><td>Fondo negoziale (versa 4.700 €/anno)</td><td class="n">3,62%</td><td class="n">321.149 €</td><td class="n pos">306.344 €</td></tr>
+<tr><td>PIP costoso (versa 4.700 €/anno)</td><td class="n">2,26%</td><td class="n">246.887 €</td><td class="n">232.082 €</td></tr>
+<tr><td>ETF (investe 3.149 €/anno)</td><td class="n">4,6% prima del 26%</td><td class="n">261.931 €</td><td class="n">222.485 €</td></tr>
+</table></div>
+<p>Il fondo negoziale vince di circa il 38%, soprattutto grazie al 33% recuperato ogni anno. Un PIP con costi da 2% si mangia quasi tutto il vantaggio. Il contributo del datore e il TFR (che nell'ETF non ci sarebbero) sono esclusi: allargherebbero il distacco. L'ETF resta liquido in ogni momento. Il README del tema elenca le letture per approfondire questo confronto.</p>
+<p class="src">Le aliquote, i costi e il 5% sono ipotesi; i rendimenti attesi di AQR e Vanguard nel tema sono tra 4% e 6,5% nominale per l'azionario. Il fondo pensione è tassato 9% sui soli contributi dedotti (4.700 × 35).</p>
+
+<h2 id="calc">10. Calcolatore</h2>
+<div class="box calc">
+<label for="c-imp">Imponibile IRPEF prima del fondo (€)</label><input id="c-imp" type="number" value="36324" min="0" step="100">
+<label for="c-ded">Contributi deducibili tuoi (€, max 5.300 meno quota datore)</label><input id="c-ded" type="number" value="4700" min="0" step="100">
+<label for="c-anni">Anni di partecipazione all'uscita</label><input id="c-anni" type="number" value="35" min="0" step="1">
+<output id="out" aria-live="polite"></output>
+</div>
+
+<h2 id="fonti">11. Fonti e limiti</h2>
+<ul>
+<li>Fondo Poste, <a href="../../sources/fondoposte/2026-07-31-documento-sul-regime-fiscale/transcription.md"><i>Documento sul regime fiscale</i></a>, 31/07/2026: tetto 5.300 €, prima occupazione, premio di risultato, non dedotti, 20%/12,5%, 15%→9%, tabelle di anticipazioni, riscatti, RITA, nuove prestazioni L. 199/2025.</li>
+<li>COVIP, <a href="../../sources/covip/2022-04-00-guida-introduttiva-alla-previdenza-complementare/transcription.md"><i>Guida introduttiva alla previdenza complementare</i></a>: TFR, prestazioni, RITA, percentuali di anticipazione e riscatto, esempi di Paolo, Maria, Carlo, Vittoria (tetto ancora a 5.164,57 €).</li>
+<li>COVIP, <a href="../../sources/covip/2026-06-10-relazione-per-lanno-2025-considerazioni-del-presidente/transcription.md"><i>Considerazioni del Presidente 2025</i></a>: adesione automatica, nuove forme di erogazione.</li>
+<li>COVIP, <a href="../../sources/covip/2026-00-00-supplementary-pension-funds-in-italy-at-end-2025-main-data/transcription.md"><i>Main data 2025</i></a>: rendimenti e ISC medi.</li>
+<li>Scaglioni IRPEF 2026 (23/33/43%) dal <a href="README.md">README del tema</a>.</li>
+</ul>
+<div class="note"><b>⚠ Non dalle fonti del repo:</b> detrazione al 19% e suoi esempi; contributi INPS ~9,19%; meccanismo di busta paga e 730; effetto sulle detrazioni da lavoro; coefficiente di rendita 4,3% (derivato da un esempio COVIP). Tutti i calcoli usano l'IRPEF lorda, ignorano addizionali regionali e comunali e mantengono lo stipendio costante. Regole per gli iscritti ante 2007 e i “vecchi iscritti” non trattate. In caso di dubbio prevale il documento del proprio fondo.</div>
+</main>
+<script>
+function irpef(x) {
+  let t = 0;
+  for (const [lo, hi, r] of [[0, 28000, .23], [28000, 50000, .33], [50000, Infinity, .43]])
+    if (x > lo) t += (Math.min(x, hi) - lo) * r;
+  return t;
+}
+const eur = v => Math.round(v).toLocaleString("it-IT") + " €";
+function update() {
+  const imp = +document.getElementById("c-imp").value || 0;
+  const ded = Math.min(+document.getElementById("c-ded").value || 0, 5300, imp);
+  const anni = +document.getElementById("c-anni").value || 0;
+  const save = irpef(imp) - irpef(imp - ded);
+  const exit = Math.max(9, 15 - 0.3 * Math.max(0, anni - 15));
+  const net = save - ded * exit / 100;
+  document.getElementById("out").innerHTML =
+    `Risparmio IRPEF annuo: <b>${eur(save)}</b> (${ded ? (save / ded * 100).toFixed(1) : 0}% del versato)<br>` +
+    `Aliquota d'uscita in pensione: <b>${exit.toFixed(1).replace(".", ",")}%</b> → tassa futura su questi contributi ${eur(ded * exit / 100)}<br>` +
+    `Guadagno fiscale netto per anno di versamento: <b class="${net >= 0 ? "pos" : "neg"}">${eur(net)}</b> (esclusi rendimenti, TFR e contributo datore)`;
+}
+document.querySelectorAll(".calc input").forEach(i => i.addEventListener("input", update));
+update();
+</script>
+</body>
+</html>

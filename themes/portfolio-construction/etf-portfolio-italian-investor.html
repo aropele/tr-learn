@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Four Principles, One Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a study ledger. One narrow reading column; each section is a principle-tagged entry with the same five rows (principle, mechanism, rule, client action, source). */
+:root {
+  --bg: #f5f6f8; --surface: #ffffff; --ink: #18202e; --muted: #5a6476; --line: #d9dde5;
+  --accent: #8a1c2b;
+  --goals: #2f5d8a; --balance: #2e7d5b; --cost: #a0611a; --discipline: #6b4a9a;
+  --italy-bg: #fdf3e4; --italy-line: #e2c08f;
+  --f-display: "Literata", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151c; --surface: #1a202a; --ink: #e6e9ef; --muted: #9aa3b2; --line: #2d3542;
+  --accent: #e0707e; --goals: #7fb0e0; --balance: #6cc59a; --cost: #e0a35a; --discipline: #b59ae0;
+  --italy-bg: #2a2216; --italy-line: #6b5430; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11151c; --surface: #1a202a; --ink: #e6e9ef; --muted: #9aa3b2; --line: #2d3542;
+  --accent: #e0707e; --goals: #7fb0e0; --balance: #6cc59a; --cost: #e0a35a; --discipline: #b59ae0;
+  --italy-bg: #2a2216; --italy-line: #6b5430; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width: 760px; margin: 0 auto; padding-block: 40px 80px; display: grid; gap: 28px; }
+h1, h2 { font-family: var(--f-display); text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+h2 { font-size: 1.45rem; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lede { color: var(--muted); font-size: 1.05rem; }
+.eyebrow { font: 500 .75rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+
+/* principle spine */
+.spine { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+.spine div { border-top: 4px solid var(--c); padding-top: 8px; display: grid; gap: 2px; }
+.spine b { font-family: var(--f-display); font-size: 1.1rem; }
+.spine span { font-size: .85rem; color: var(--muted); }
+@media (max-width: 560px) { .spine { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.p-goals { --c: var(--goals); } .p-balance { --c: var(--balance); } .p-cost { --c: var(--cost); } .p-discipline { --c: var(--discipline); } .p-all { --c: var(--accent); }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.toolbar label { display: flex; gap: 8px; align-items: center; font-weight: 500; cursor: pointer; }
+.toolbar small { color: var(--muted); }
+
+/* entry */
+section.entry { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--c); border-radius: 6px; padding: 22px 22px 18px; display: grid; gap: 14px; min-width: 0; }
+.entry header { display: grid; gap: 6px; }
+.tag { color: var(--c); }
+.predict { display: grid; gap: 8px; padding: 12px 14px; background: var(--bg); border-radius: 4px; }
+.predict q { font-weight: 600; quotes: none; }
+.reveal-btn { justify-self: start; }
+.rows { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; }
+.row > .eyebrow { padding-top: 5px; color: var(--c); }
+@media (max-width: 560px) { .row { grid-template-columns: minmax(0,1fr); gap: 2px; } }
+body.predict-on section.entry:not(.open) .rows { display: none; }
+body:not(.predict-on) .predict .reveal-btn { display: none; }
+.src { font-size: .85rem; color: var(--muted); }
+.badge { display: inline-block; font: 500 .7rem/1 var(--f-mono); padding: 3px 6px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); vertical-align: middle; letter-spacing: .04em; }
+
+button { font: 500 .9rem var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 6px 12px; cursor: pointer; }
+button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* widget */
+.widget { border: 1px dashed var(--line); border-radius: 4px; padding: 14px; display: grid; gap: 10px; min-width: 0; }
+.widget input[type=range] { width: 100%; accent-color: var(--c); }
+.ctrl { display: grid; gap: 4px; }
+.ctrl label { font-size: .9rem; display: flex; justify-content: space-between; gap: 8px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.stat { display: grid; gap: 2px; }
+.stat b { font: 500 1.35rem var(--f-mono); font-variant-numeric: tabular-nums; }
+.stat span { font-size: .8rem; color: var(--muted); }
+svg { display: block; width: 100%; height: auto; max-width: 100%; }
+svg text { fill: var(--muted); font: 11px var(--f-mono); }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; font-size: .9rem; width: 100%; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+td.n, th.n { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.verdict { font-weight: 600; padding: 8px 10px; border-radius: 4px; background: var(--bg); }
+
+.italy { background: var(--italy-bg); border: 1px solid var(--italy-line); border-radius: 4px; padding: 12px 14px; display: grid; gap: 6px; font-size: .92rem; }
+.italy ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.italy .eyebrow { color: var(--ink); }
+
+ol.check { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+ol.check li::marker { font-family: var(--f-mono); color: var(--muted); }
+footer { color: var(--muted); font-size: .85rem; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: no-preference) { .rows { animation: fade .25s ease-out; } @keyframes fade { from { opacity: .4; } to { opacity: 1; } } }
+</style>
+</head>
+<body class="predict-on">
+<main>
+
+<header style="display:grid;gap:14px">
+  <span class="eyebrow">tr-learn · portfolio construction · study page</span>
+  <h1>Four principles, one ETF portfolio for an Italian client</h1>
+  <p class="lede">How Vanguard's research in this archive would guide an independent fee-only adviser who builds an ETF portfolio for a euro investor. Every rule below hangs on one of four principles. Remember the principle and its mechanism, and you can rebuild the rule on the spot.</p>
+  <div class="spine" aria-label="The four principles">
+    <div class="p-goals"><b>Goals</b><span>Clear, appropriate goals set the risk you take.</span></div>
+    <div class="p-balance"><b>Balance</b><span>Avoid risk the market does not pay you for.</span></div>
+    <div class="p-cost"><b>Cost</b><span>The client keeps only net returns.</span></div>
+    <div class="p-discipline"><b>Discipline</b><span>A plan the client can stick to beats a better one they abandon.</span></div>
+  </div>
+  <p class="src">Spine: Fig. 1, <a href="../../sources/vanguard/2022-00-00-vanguards-portfolio-construction-framework-from-investing-principles/transcription.md">Vanguard's portfolio construction framework (2022)</a>.</p>
+</header>
+
+<div class="toolbar">
+  <label for="predict-toggle"><input type="checkbox" id="predict-toggle" checked> Predict first</label>
+  <small>Answer each question in your head before you reveal the reasoning. Recall sticks better than rereading.</small>
+</div>
+
+<!-- 0 -->
+<section class="entry p-all" id="method">
+  <header><span class="eyebrow tag">0 · All four principles</span><h2>The method in one picture</h2></header>
+  <div class="predict"><q>What comes first: the asset classes, or the client's objective?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>The portfolio is the output of a chain that starts from the client, never from the product shelf.</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Vanguard models whole return distributions, not point forecasts, because "with point forecasts, the best recommendation would be to allocate 100% to the asset with the highest forecasted return". A distribution forces a trade-off against the client's own risk aversion.</p></div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Goal → preferences and beliefs → methodology → return distributions (VCMM) → optimiser (VAAM) → portfolio. No methodology is better in absolute terms; the objective picks it.</p></div>
+    <div class="widget" aria-label="Methodology chooser">
+      <span class="eyebrow">Click a methodology</span>
+      <div class="seg" id="meth-seg">
+        <button type="button" data-k="cap" aria-pressed="true">Market-cap</button>
+        <button type="button" data-k="saa" aria-pressed="false">Model-based SAA</button>
+        <button type="button" data-k="ap" aria-pressed="false">Active-passive</button>
+        <button type="button" data-k="tvaa" aria-pressed="false">Time-varying (TVAA)</button>
+      </div>
+      <p id="meth-out" class="verdict"></p>
+    </div>
+    <div class="row"><span class="eyebrow">With the client</span><p>Write the goal down first, in an investment policy statement, then choose the method that fits it. For most ETF clients that means market-cap weights with deliberate, documented deviations.</p></div>
+    <p class="src">Sources: <a href="../../sources/vanguard/2022-00-00-vanguards-portfolio-construction-framework-from-investing-principles/transcription.md">2022 framework</a>, Figs 6–7 and fn 10 · <a href="../../sources/vanguard/2025-06-00-quantifying-advisers-alpha-in-uk-putting-value-on-your-value/transcription.md">Adviser's Alpha UK</a>, conclusion.</p>
+  </div>
+</section>
+
+<!-- 1 -->
+<section class="entry p-goals" id="goals">
+  <header><span class="eyebrow tag">1 · Goals</span><h2>The stock/bond mix is the decision that matters most</h2></header>
+  <div class="predict"><q>Going from 40% to 80% equity: what grows faster, the average return or the worst year?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>Asset allocation is "the most important determinant of return variability and long-term performance" of a diversified portfolio.</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Each step towards equities buys a little more average return with a lot more downside. The goal decides how much downside the client can live through without selling.</p></div>
+    <div class="widget">
+      <div class="ctrl"><label for="mix">Equity share <span class="num" id="mix-v"></span></label><input type="range" id="mix" min="0" max="100" step="10" value="60"></div>
+      <div class="stats">
+        <div class="stat"><b id="mix-avg"></b><span>average annual return</span></div>
+        <div class="stat"><b id="mix-min"></b><span>worst calendar year</span></div>
+        <div class="stat"><b id="mix-max"></b><span>best calendar year</span></div>
+      </div>
+      <svg id="mix-svg" viewBox="0 0 600 70" role="img" aria-label="Range of yearly returns for the selected mix"></svg>
+      <span class="src"><span class="badge">UK DATA 1901–2024</span> Printed values, Fig. I-1. Past performance is not a reliable indicator of future results.</span>
+    </div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Set the mix from the goal and the worst year the client can tolerate, not from the return they would like.</p></div>
+    <div class="row"><span class="eyebrow">With the client</span><p>Show the worst year in euros on their own capital before they sign. That number is the plan's stress test.</p></div>
+    <p class="src">Source: <a href="../../sources/vanguard/2025-06-00-quantifying-advisers-alpha-in-uk-putting-value-on-your-value/transcription.md">Adviser's Alpha UK</a>, Module 1, Fig. I-1 (p. M2).</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="entry p-balance" id="market">
+  <header><span class="eyebrow tag">2 · Balance</span><h2>Start from the market, deviate on purpose</h2></header>
+  <div class="predict"><q>What is the "neutral" portfolio, the one that needs no justification?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>Balance means avoiding <em>uncompensated</em> risk. Diversification removes risk that earns nothing.</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Market-cap-weighted portfolios are "the most efficient way to achieve market returns via diversified exposures at low cost". Every tilt away from them (home bias, factors, active funds) adds a risk that needs its own reason. Ad hoc tilts "ignore correlations among assets and can lead to inefficient portfolios".</p></div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Global market weights are the baseline. A deviation needs a belief, a size and a written reason.</p></div>
+    <div class="row"><span class="eyebrow">With the client</span><p>In a review, ask of every holding "what risk is this paying us for?" An ETF that only duplicates another one adds cost and no balance.</p></div>
+    <p class="src">Sources: <a href="../../sources/vanguard/2022-00-00-vanguards-portfolio-construction-framework-from-investing-principles/transcription.md">2022 framework</a>, p. 4 · <a href="../../sources/vanguard/2024-09-00-vanguard-asset-allocation-model-investment-solution-active-passive/transcription.md">VAAM (2024)</a>, p. 14.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="entry p-balance" id="bonds">
+  <header><span class="eyebrow tag">3 · Balance</span><h2>Bonds: go global, hedged to euro</h2></header>
+  <div class="predict"><q>Adding non-euro bonds to a euro bond portfolio: does it lower volatility, raise it, or depends?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>Imperfectly correlated bond markets lower volatility "without necessarily decreasing its total return". The condition: "the key … is to hedge the currency exposure".</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Currency has roughly zero long-run expected return but adds a lot of volatility, and bonds are a low-volatility asset. So, unhedged, the currency swamps the bond. Hedged, you keep the diversification across yield curves and drop the currency noise.</p></div>
+    <div class="widget">
+      <span class="eyebrow">Euro-area investor, 2000 – Mar 2023</span>
+      <div class="scroll"><table>
+        <thead><tr><th>Bond holding</th><th class="n">Annualised volatility</th></tr></thead>
+        <tbody>
+          <tr><td>Euro-area bonds only</td><td class="n">≈ 4.1%</td></tr>
+          <tr><td>Global bonds, unhedged</td><td class="n">≈ 6.5%</td></tr>
+          <tr><td>Global bonds, hedged to EUR</td><td class="n">≈ 3.2%</td></tr>
+        </tbody></table></div>
+      <span class="src">Approx. readings from Fig. 1. The hedged global bar is the lowest in every market studied.</span>
+      <span class="eyebrow">How big a currency bet would leaving bonds unhedged be?</span>
+      <div class="seg" id="bond-seg">
+        <button type="button" data-k="0" aria-pressed="true">100% bonds</button>
+        <button type="button" data-k="1" aria-pressed="false">30 equity / 70 bonds</button>
+        <button type="button" data-k="2" aria-pressed="false">60 equity / 40 bonds</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><b id="bond-req"></b><span>yearly currency gain needed to pay for the extra volatility of unhedged bonds (Fig. 9, approx.)</span></div>
+        <div class="stat"><b id="bond-vol"></b><span>volatility change from adding hedged global bonds up to market cap (79% ex-EUR) (Fig. 13, approx.)</span></div>
+      </div>
+      <p class="src">The more bonds in the portfolio, the more hedging matters and the more global bonds help. Gains arrive "at a decreasing rate" as the global share rises.</p>
+    </div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Bond ETFs for a euro client: global aggregate, EUR-hedged share class. Hedging costs about 0.02–0.04% a year in bid-ask spread (Fig. 11). There is "no 'right-size' allocation" to global bonds; up to market cap (79% outside the euro) the volatility keeps falling.</p></div>
+    <div class="row"><span class="eyebrow">Italian angle</span><p>Italy's 10-year yield changes correlate only 0.53 with Germany's, 0.70 with France's and 0.39 with Australia's (Fig. 4). For a client whose bonds are mostly BTPs, going global is diversification, not a cosmetic change.</p></div>
+    <div class="italy">
+      <span class="eyebrow">Outside the sources · verify for Italy</span>
+      <ul>
+        <li>Which UCITS global aggregate ETFs offer a EUR-hedged share class, and at what total cost? The mechanism says hedge; the shelf decides whether you can.</li>
+        <li>How does Italian tax treat government bonds held directly compared with bonds held through an ETF? A tax difference is a cost, and cost is a principle.</li>
+      </ul>
+    </div>
+    <p class="src">Source: <a href="../../sources/vanguard/2023-05-00-going-global-with-bonds-benefits-more-global-fixed-income-allocation/transcription.md">Going global with bonds (2023, European edition)</a>, Figs 1, 4, 9, 11, 13.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="entry p-balance" id="fx">
+  <header><span class="eyebrow tag">4 · Balance</span><h2>Currency: hedge the bonds, leave equities unhedged</h2></header>
+  <div class="predict"><q>Why would the same investor hedge one asset class and not the other?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>Currency is "a key portfolio decision – not an implementation detail". Decide it by portfolio risk, not by forecasting exchange rates.</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Two forces decide: the <b>correlation</b> between currency and asset, and the currency's <b>volatility relative to the asset</b>. Next to a quiet bond, currency noise dominates, so you hedge. Next to volatile equities it is a small share of the risk, and can even diversify, so you leave it.</p></div>
+    <div class="widget">
+      <div class="ctrl"><label for="eq">Equity share of the portfolio <span class="num" id="eq-v"></span></label><input type="range" id="eq" min="0" max="100" step="5" value="60"></div>
+      <div class="stats">
+        <div class="stat"><b id="fx-exp"></b><span>of the portfolio exposed to foreign currency</span></div>
+        <div class="stat"><b id="fx-hr"></b><span>overall hedge ratio implied by the rule</span></div>
+      </div>
+      <svg id="fx-svg" viewBox="0 0 600 170" role="img" aria-label="Implied hedge ratio by equity share"></svg>
+      <span class="src">Derived live from the rule using the euro-area inputs in the paper: 9% home bias in equities, 10% in bonds, 91% foreign currency in global equity. It reproduces the printed 55% exposure at 60/40 (Fig. 2) and the hedge ratios of about 0.8 → 0.2 (Fig. 7, approx.).</span>
+    </div>
+    <details class="widget">
+      <summary>Mechanism, as a formula: optimal hedge ratio h* = 1 + ρ·σ<sub>s</sub>/σ<sub>f</sub></summary>
+      <div class="ctrl"><label for="rho">ρ, correlation of currency with the asset <span class="num" id="rho-v"></span></label><input type="range" id="rho" min="-1" max="1" step="0.1" value="-0.3"></div>
+      <div class="ctrl"><label for="sf">σ<sub>f</sub>, volatility of the asset <span class="num" id="sf-v"></span></label><input type="range" id="sf" min="2" max="24" step="1" value="16"></div>
+      <p class="src">σ<sub>s</sub>, currency volatility, is fixed at 8% as in Fig. 3. The formula is unconstrained; real hedge ratios sit between 0 and 1.</p>
+      <p class="verdict" id="h-out"></p>
+    </details>
+    <div class="row"><span class="eyebrow">Rule</span><p>"Hedge fixed income and leave equity unhedged." The more equity, the lower the overall hedge ratio. For the euro, correlation has been risk-adding in 44% of periods and "has recently hovered around zero" (Fig. 4, p. 6), so forecasting it is a weak basis for a decision.</p></div>
+    <div class="row"><span class="eyebrow">With the client</span><p>When the dollar falls and the global equity ETF lags, the explanation is already written: the currency stays in equities on purpose. Avoid "over‑engineering solutions to an inherently uncertain problem".</p></div>
+    <p class="src">Source: <a href="../../sources/vanguard/2026-05-00-fx-dimension-evaluating-currency-hedging-global-multi-asset-portfolios/transcription.md">The FX dimension (May 2026, EU edition)</a>, Figs 2–4, 7, appendix, p. 7.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="entry p-balance" id="equity">
+  <header><span class="eyebrow tag">5 · Balance</span><h2>Equity: global, and home bias is a bet</h2></header>
+  <div class="predict"><q>An Italian client holding mostly European equities: is that the cautious choice or the active one?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>The same as for bonds: the market portfolio is neutral, and anything else is a position.</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>The eurozone is about 9% of global equity (Fig. 2). A portfolio of 50% European equity is a five-fold overweight on one region: concentrated risk the market does not reward. Diversified composites have narrower outcome ranges than any single region (VCMM Fig. 7).</p></div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Core equity = global market-cap ETF, unhedged. A home tilt, if any, is a sized and documented decision, for example to hold some liabilities in euro.</p></div>
+    <div class="row"><span class="eyebrow">With the client</span><p>Reframe "I know Italian companies" as a bet that is 9% of the world against 91%. Then let them choose its size.</p></div>
+    <p class="src">Sources: <a href="../../sources/vanguard/2026-05-00-fx-dimension-evaluating-currency-hedging-global-multi-asset-portfolios/transcription.md">FX dimension</a>, Fig. 2 · <a href="../../sources/vanguard/2026-09-00-vanguard-capital-markets-model/transcription.md">VCMM (2026)</a>, Fig. 7 · reading 10 in the <a href="README.md">theme index</a> (not yet archived).</p>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="entry p-cost" id="active">
+  <header><span class="eyebrow tag">6 · Cost</span><h2>Index or active: a four-variable test, not a belief</h2></header>
+  <div class="predict"><q>An active fund expected to beat the index by 0.8% a year but costing 1.0%. In or out?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>Vanguard "reject[s] this basic, binary choice". Active needs "talent, low costs, and patience". Cost is "the enemy of net alpha".</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Only net alpha reaches the client: gross alpha minus cost. If it is zero or negative, active only adds tracking error. If it is positive, the mix depends on how much active risk the client tolerates, and an index core then "diversifies" manager risk.</p></div>
+    <div class="widget" aria-label="Active/passive decision flowchart">
+      <div class="seg" id="skill-seg"><span class="src" style="align-self:center">Can you identify skilled managers?</span>
+        <button type="button" data-k="1" aria-pressed="true">Yes</button><button type="button" data-k="0" aria-pressed="false">No</button></div>
+      <div class="ctrl"><label for="ga">Gross alpha expectation <span class="num" id="ga-v"></span></label><input type="range" id="ga" min="-1.5" max="2" step="0.05" value="0.8"></div>
+      <div class="ctrl"><label for="fc">Cost of the active fund vs index <span class="num" id="fc-v"></span></label><input type="range" id="fc" min="0" max="1.5" step="0.05" value="1"></div>
+      <div class="seg" id="tol-seg"><span class="src" style="align-self:center">Client tolerance for tracking error</span>
+        <button type="button" data-k="low" aria-pressed="false">Low</button><button type="button" data-k="mid" aria-pressed="true">Medium</button><button type="button" data-k="high" aria-pressed="false">High</button></div>
+      <p class="verdict" id="ap-out"></p>
+      <span class="src">The flowchart follows Fig. 6. The paper's grid (Fig. 8) maps combinations to bands from all-index to under 25% index; this widget gives only the direction, not the band.</span>
+    </div>
+    <div class="row"><span class="eyebrow">Rule</span><p>No skill, or net alpha ≤ 0: all index. For an ETF portfolio that is the default, and it is usually the end of the discussion.</p></div>
+    <div class="row"><span class="eyebrow">With the client</span><p>Answer "why not a manager who beats the market?" with the four variables, not with an opinion on active management.</p></div>
+    <p class="src">Sources: <a href="../../sources/vanguard/2026-10-15-active-passive-choice/transcription.md">The active/passive choice</a>, Figs 3, 6, 8 · <a href="../../sources/vanguard/2024-09-00-vanguard-asset-allocation-model-investment-solution-active-passive/transcription.md">VAAM</a>, Fig. 8.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="entry p-cost" id="cost">
+  <header><span class="eyebrow tag">7 · Cost</span><h2>Costs compound against the client</h2></header>
+  <div class="predict"><q>0.7% versus 2.0% a year in costs, over 30 years: roughly how much of the final capital disappears?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>"Clients only get to keep, spend or bequest net returns." Cost is the one return driver you control with certainty.</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Leakage of fees, taxes and trading is taken every year from a growing base, so the gap widens exponentially, not linearly.</p></div>
+    <div class="widget">
+      <div class="ctrl"><label for="leak">Yearly leakage (fees, taxes, trading) <span class="num" id="leak-v"></span></label><input type="range" id="leak" min="0" max="2.5" step="0.1" value="0.7"></div>
+      <div class="stats">
+        <div class="stat"><b id="leak-end"></b><span>after 30 years, from 100,000 at 6% a year</span></div>
+        <div class="stat"><b id="leak-lost"></b><span>given up against zero leakage</span></div>
+      </div>
+      <svg id="leak-svg" viewBox="0 0 600 180" role="img" aria-label="Growth with and without leakage"></svg>
+      <span class="src">Computed as 100,000 × 1.06³⁰ × (1 − leakage)³⁰; it reproduces Fig. 7's printed 557k, 465k, 388k and 313k at 0.1, 0.7, 1.3 and 2.0%. The paper uses £; the arithmetic is currency-free.</span>
+      <span class="eyebrow">Equity funds, 10-year returns by cost quartile (Fig. 5)</span>
+      <svg id="q-svg" viewBox="0 0 600 120" role="img" aria-label="Returns by cost quartile"></svg>
+    </div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Choose the cheapest ETF that delivers the exposure you decided on. Then look at the leakage you cannot see on the factsheet: spreads, taxes, unnecessary trades.</p></div>
+    <div class="row"><span class="eyebrow">With the client</span><p>Your fee is leakage too. A fee-only adviser earns it by cutting the other leakages and by preventing the big behavioural ones (sections 9–10).</p></div>
+    <div class="italy">
+      <span class="eyebrow">Outside the sources · verify for Italy</span>
+      <ul>
+        <li>How are ETF gains and losses classified for Italian tax, and can losses offset ETF gains? If not, harvesting losses and rebalancing cost more than the UK paper assumes.</li>
+        <li>Stamp duty and the custody costs of the platform are part of leakage. Include them in the same yearly figure.</li>
+      </ul>
+    </div>
+    <p class="src">Source: <a href="../../sources/vanguard/2025-06-00-quantifying-advisers-alpha-in-uk-putting-value-on-your-value/transcription.md">Adviser's Alpha UK</a>, Figs 5, 7.</p>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="entry p-discipline" id="expectations">
+  <header><span class="eyebrow tag">8 · Discipline</span><h2>Expectations are ranges, and the tails are fat</h2></header>
+  <div class="predict"><q>How often has US equity lost money over a full decade: almost never, or a few percent of the time?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>"Uncertainty is the point, not a limitation." "History informs but does not dictate."</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Returns are "compensation for bearing systematic risk", built in layers. Bad decades happen more often than a normal curve suggests: the S&amp;P 500 was negative in 3% of rolling 10-year windows since 1871, against under 0.4% under a normal distribution.</p></div>
+    <div class="widget">
+      <span class="eyebrow">Long-run building blocks (VCMM steady state, Fig. 5)</span>
+      <svg id="bb-svg" viewBox="0 0 600 120" role="img" aria-label="Return building blocks"></svg>
+      <span class="eyebrow">Chance of a 10-year return below −1% (Fig. 8, approx.)</span>
+      <div class="seg" id="tail-seg">
+        <button type="button" data-k="n" aria-pressed="false">Normal curve</button>
+        <button type="button" data-k="v" aria-pressed="true">VCMM, fat tails</button>
+      </div>
+      <p class="verdict" id="tail-out"></p>
+    </div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Quote a range, never a single number. Update expectations every year (Vanguard's outlook comes out each December), but change the allocation only if the client's goal changed.</p></div>
+    <div class="row"><span class="eyebrow">With the client</span><p>Name the bad decade before it happens. A client warned in advance is far less likely to sell at the bottom.</p></div>
+    <p class="src">Source: <a href="../../sources/vanguard/2026-09-00-vanguard-capital-markets-model/transcription.md">Vanguard Capital Markets Model (Sep 2026)</a>, p. 3, Figs 5, 8, p. 12. <span class="badge">US DATA</span></p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="entry p-discipline" id="rebalance">
+  <header><span class="eyebrow tag">9 · Discipline</span><h2>Rebalance to keep the risk you chose</h2></header>
+  <div class="predict"><q>Rebalancing a 60/40 portfolio: does it raise returns or control risk?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>Rebalancing keeps the portfolio at the risk the goal requires. It is a risk tool, not a return tool.</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>Left alone, the higher-returning asset grows into a larger share: a 60/40 drifts towards an 80/20 risk level. The drifting portfolio earned more only because it took more risk. At equal risk, the rebalanced portfolio wins by about 12 bps.</p></div>
+    <div class="widget scroll">
+      <table>
+        <thead><tr><th>1960–2023</th><th class="n">Return</th><th class="n">Volatility</th></tr></thead>
+        <tbody>
+          <tr><td>60/40 rebalanced yearly</td><td class="n">8.90%</td><td class="n">11.38%</td></tr>
+          <tr><td>60/40 left to drift</td><td class="n">9.57%</td><td class="n">14.22%</td></tr>
+          <tr><td>80/20 rebalanced (same risk as drift)</td><td class="n">9.69%</td><td class="n">14.03%</td></tr>
+        </tbody>
+      </table>
+      <span class="src">Printed values, Fig. III-2.</span>
+    </div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Send new money, coupons and dividends to the most underweight asset first. If trading costs are fixed, rebalance to target. If they are proportional (commissions, taxes), rebalance only to the nearest edge of the band.</p></div>
+    <div class="row"><span class="eyebrow">With the client</span><p>Rebalancing means buying what has just fallen. Agree the rule in writing while markets are calm.</p></div>
+    <div class="italy">
+      <span class="eyebrow">Outside the sources · verify for Italy</span>
+      <ul>
+        <li>In the Italian tax regime the client uses, does each sale realise a taxable gain? If so, taxes are proportional costs and the rule points to band-edge rebalancing driven by cash flows.</li>
+      </ul>
+    </div>
+    <p class="src">Sources: <a href="../../sources/vanguard/2025-06-00-quantifying-advisers-alpha-in-uk-putting-value-on-your-value/transcription.md">Adviser's Alpha UK</a>, Module 3, Fig. III-2 · <a href="../../sources/aaii/2011-05-00-best-practices-portfolio-rebalancing/transcription.md">Best practices for rebalancing</a> (not yet transcribed).</p>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="entry p-discipline" id="value">
+  <header><span class="eyebrow tag">10 · Discipline</span><h2>Where a fee-only adviser's value comes from</h2></header>
+  <div class="predict"><q>Of the adviser's possible value-add, which single item is the largest: fund selection, rebalancing or coaching?</q><button class="reveal-btn" type="button">Show the reasoning</button></div>
+  <div class="rows">
+    <div class="row"><span class="eyebrow">Principle</span><p>Do not sell market-beating returns: that depends on things outside your control. Sell what is "well within an adviser's control".</p></div>
+    <div class="row"><span class="eyebrow">Mechanism</span><p>The value is lumpy. It arrives "intermittently, often during periods of market duress or euphoria", when one prevented mistake is worth "tens of percentage points … rather than mere basis points". In the 2020 crash, a 60/40 investor who stayed invested made 62%; one who went to cash at the bottom made 37% (Fig. 6).</p></div>
+    <div class="widget">
+      <span class="eyebrow">Adviser's Alpha, upper end of each range (bps a year, Fig. 2)</span>
+      <svg id="aa-svg" viewBox="0 0 600 200" role="img" aria-label="Adviser's Alpha components"></svg>
+      <span class="src">Asset allocation and total-return investing are rated "&gt; 0" but too client-specific to quantify. The total is "up to, or exceeding, 3%" and does not arrive evenly each year. Asset location and withdrawal order are measured on UK wrappers. <span class="badge">UK</span></span>
+    </div>
+    <div class="row"><span class="eyebrow">Rule</span><p>Plan (investment policy statement and the best-fit allocation), implement cheaply, keep deviations from the market small, and coach the client before the turbulence. Moving to fee-based pay "align[s] adviser and client interests".</p></div>
+    <div class="italy">
+      <span class="eyebrow">Outside the sources · verify for Italy</span>
+      <ul>
+        <li>Which Italian wrappers play the role of the UK's ISA, GIA and pension (taxable account, pension funds, insurance policies)? Asset location and withdrawal order apply only once you have mapped them.</li>
+        <li>How do MiFID II suitability and the rules for fee-only advisers shape the investment policy statement and the record of each rebalancing advice?</li>
+      </ul>
+    </div>
+    <p class="src">Source: <a href="../../sources/vanguard/2025-06-00-quantifying-advisers-alpha-in-uk-putting-value-on-your-value/transcription.md">Adviser's Alpha UK (Jun 2025)</a>, Figs 2, 6, conclusion.</p>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="entry p-all" id="checklist">
+  <header><span class="eyebrow tag">11 · Synthesis</span><h2>Checklist for an Italian client</h2></header>
+  <ol class="check">
+    <li><b>Goal</b>, written in an investment policy statement, with the worst year the client accepts (§1).</li>
+    <li><b>Stock/bond mix</b> from that goal and loss tolerance (§1).</li>
+    <li><b>Equity core</b>: one global market-cap ETF, unhedged; any home tilt sized and written down (§2, §5).</li>
+    <li><b>Bond core</b>: global aggregate ETF, EUR-hedged, global share up to market weight (§3).</li>
+    <li><b>Currency</b>: check the overall hedge ratio falls as equity rises (§4).</li>
+    <li><b>Active or factor sleeves</b> only if they pass the four-variable test (§6).</li>
+    <li><b>Leakage</b>: ETF costs, spreads, taxes and your fee in one yearly figure (§7).</li>
+    <li><b>Rules agreed in calm markets</b>: rebalancing bands, how to use cash flows, what you will do in a crash (§8–§10).</li>
+  </ol>
+</section>
+
+<footer>
+  <p>A study page built only from the transcriptions in this archive. Reference material for personal study, never cited as proof; the original documents prevail. Values marked "approx." are read off charts. The shaded "outside the sources" boxes are open questions, not answers.</p>
+  <p><a href="README.md">Back to the portfolio construction reading path</a></p>
+</footer>
+</main>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const pct = (x, d = 1) => (x >= 0 ? '' : '−') + Math.abs(x).toFixed(d) + '%';
+  const seg = (id, fn) => {
+    const box = $(id);
+    box.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      box.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      fn(b.dataset.k);
+    });
+    fn(box.querySelector('[aria-pressed="true"]').dataset.k);
+  };
+
+  // predict-first mode
+  $('predict-toggle').addEventListener('change', e => document.body.classList.toggle('predict-on', e.target.checked));
+  document.querySelectorAll('.reveal-btn').forEach(b => b.addEventListener('click', () => {
+    const s = b.closest('section'); s.classList.toggle('open');
+    b.textContent = s.classList.contains('open') ? 'Hide the reasoning' : 'Show the reasoning';
+  }));
+
+  // 0 methodologies (2022 framework, Fig. 6/7)
+  const METH = {
+    cap: 'Goal: grow wealth at the lowest cost and model risk. Hold the world at market weights. The default for most ETF clients.',
+    saa: 'Goal: a specific risk-return trade-off. Optimise asset-class weights on VCMM distributions; deviations from market weights come from the model.',
+    ap: 'Goal: add expected alpha. Blend index and active funds by expected alpha, cost, active risk and tolerance (see §6).',
+    tvaa: 'Goal: a return target over a medium horizon. Weights move with the VCMM\'s time-varying forecasts; equity can swing widely (45–80% in the VAAM example).'
+  };
+  seg('meth-seg', k => $('meth-out').textContent = METH[k]);
+
+  // 1 mix (Adviser's Alpha Fig. I-1, printed): [max, min, avg] by equity 0..100
+  const MIX = [[53.1,-23.2,4.9],[50.5,-20.9,5.4],[57.6,-24.4,5.9],[68.6,-28.0,6.4],[79.5,-31.5,6.8],[90.4,-35.0,7.2],[101.3,-38.5,7.5],[112.2,-42.1,7.9],[123.2,-45.6,8.2],[134.1,-49.1,8.5],[145.0,-52.6,8.7]];
+  const mix = () => {
+    const e = +$('mix').value, [mx, mn, av] = MIX[e / 10];
+    $('mix-v').textContent = `${e}% equity / ${100 - e}% bonds`;
+    $('mix-avg').textContent = pct(av); $('mix-min').textContent = pct(mn); $('mix-max').textContent = pct(mx);
+    const x = v => 20 + (v + 60) / 210 * 560;
+    const c = css('--goals'), ink = css('--ink'), line = css('--line');
+    $('mix-svg').innerHTML =
+      `<line x1="${x(0)}" x2="${x(0)}" y1="8" y2="46" stroke="${line}"/>` +
+      `<rect x="${x(mn)}" y="18" width="${x(mx) - x(mn)}" height="18" fill="${c}" opacity=".35"/>` +
+      `<rect x="${x(av) - 2}" y="12" width="4" height="30" fill="${ink}"/>` +
+      [-50, 0, 50, 100, 150].map(v => `<text x="${x(v)}" y="62" text-anchor="middle">${v}%</text>`).join('');
+  };
+  $('mix').addEventListener('input', mix);
+
+  // 3 bonds, euro area: Fig. 9 required currency return, Fig. 13 vol change at market cap (approx.)
+  const BOND = [[3.5, -0.9], [1.6, -0.4], [0.4, -0.2]];
+  seg('bond-seg', k => { const [r, v] = BOND[k]; $('bond-req').textContent = '≈ ' + r.toFixed(1) + '%'; $('bond-vol').textContent = '≈ ' + v.toFixed(1) + ' pp'; });
+
+  // 4 FX rule: hedge bonds, equities unhedged. Euro inputs from FX dimension Figs 2 and 7.
+  const FE = 0.91, FB = 0.90;
+  const hr = e => { const hb = (1 - e) * FB, ue = e * FE; return hb + ue ? hb / (hb + ue) : 0; };
+  const fx = () => {
+    const e = +$('eq').value / 100;
+    $('eq-v').textContent = Math.round(e * 100) + '%';
+    $('fx-exp').textContent = Math.round(e * FE * 100) + '%';
+    $('fx-hr').textContent = hr(e).toFixed(2);
+    const X = v => 50 + v * 530, Y = v => 140 - v * 120, c = css('--balance'), ink = css('--ink'), line = css('--line');
+    let d = ''; for (let i = 0; i <= 100; i += 5) d += (i ? 'L' : 'M') + X(i / 100) + ' ' + Y(hr(i / 100));
+    $('fx-svg').innerHTML =
+      [0, .5, 1].map(v => `<line x1="50" x2="580" y1="${Y(v)}" y2="${Y(v)}" stroke="${line}"/><text x="42" y="${Y(v) + 4}" text-anchor="end">${v.toFixed(1)}</text>`).join('') +
+      [0, 20, 40, 60, 80, 100].map(v => `<text x="${X(v / 100)}" y="160" text-anchor="middle">${v}%</text>`).join('') +
+      `<path d="${d}" fill="none" stroke="${c}" stroke-width="2.5"/>` +
+      `<circle cx="${X(e)}" cy="${Y(hr(e))}" r="5" fill="${ink}"/>`;
+  };
+  $('eq').addEventListener('input', fx);
+
+  const hstar = () => {
+    const r = +$('rho').value, sf = +$('sf').value, h = 1 + r * 8 / sf;
+    $('rho-v').textContent = r.toFixed(1); $('sf-v').textContent = sf + '%';
+    const why = sf <= 6 ? 'Low-volatility asset (bond-like): currency noise dominates, hedge most of it.'
+      : r < 0 ? 'Volatile asset with a negatively correlated currency: the currency diversifies, so hedge less.'
+      : 'Positive correlation: the currency adds to the asset\'s risk, which argues for hedging.';
+    $('h-out').textContent = `h* = ${h.toFixed(2)}. ${why}`;
+  };
+  ['rho', 'sf'].forEach(id => $(id).addEventListener('input', hstar));
+
+  // 6 active/passive (Fig. 6 flowchart)
+  let skill = '1', tol = 'mid';
+  const ap = () => {
+    const g = +$('ga').value, c = +$('fc').value, n = g - c;
+    $('ga-v').textContent = (g >= 0 ? '+' : '') + g.toFixed(2) + '%'; $('fc-v').textContent = c.toFixed(2) + '%';
+    let t;
+    if (skill === '0') t = 'No reliable way to identify skilled managers → allocate 100% to index.';
+    else if (n <= 0) t = `Net alpha ${pct(n, 2)} ≤ 0 → go to index. Active would add tracking error and no expected return.`;
+    else t = `Net alpha +${n.toFixed(2)}% → apply the active-passive framework. ` +
+      ({ low: 'Low tolerance for tracking error: keep a large index core and a small active sleeve.',
+         mid: 'Medium tolerance: a blend; the index part diversifies manager risk.',
+         high: 'High tolerance: active can take a larger share, if the alpha expectation is credible.' })[tol];
+    $('ap-out').textContent = t;
+  };
+  seg('skill-seg', k => { skill = k; ap(); });
+  seg('tol-seg', k => { tol = k; ap(); });
+  ['ga', 'fc'].forEach(id => $(id).addEventListener('input', ap));
+
+  // 7 leakage (Fig. 7 arithmetic) and cost quartiles (Fig. 5)
+  const fmt = v => Math.round(v / 1000) + 'k';
+  const leak = () => {
+    const l = +$('leak').value / 100, end = t => 1e5 * Math.pow(1.06, t) * Math.pow(1 - l, t), base = 1e5 * Math.pow(1.06, 30);
+    $('leak-v').textContent = (l * 100).toFixed(1) + '%';
+    $('leak-end').textContent = fmt(end(30)); $('leak-lost').textContent = fmt(base - end(30));
+    const X = t => 50 + t / 30 * 530, Y = v => 150 - v / 6e5 * 135, c = css('--cost'), muted = css('--muted'), line = css('--line');
+    const path = f => Array.from({ length: 31 }, (_, t) => (t ? 'L' : 'M') + X(t) + ' ' + Y(f(t))).join('');
+    $('leak-svg').innerHTML =
+      [0, 2e5, 4e5, 6e5].map(v => `<line x1="50" x2="580" y1="${Y(v)}" y2="${Y(v)}" stroke="${line}"/><text x="42" y="${Y(v) + 4}" text-anchor="end">${v / 1000}k</text>`).join('') +
+      [0, 10, 20, 30].map(t => `<text x="${X(t)}" y="170" text-anchor="middle">yr ${t}</text>`).join('') +
+      `<path d="${path(t => 1e5 * Math.pow(1.06, t))}" fill="none" stroke="${muted}" stroke-dasharray="4 4"/>` +
+      `<path d="${path(end)}" fill="none" stroke="${c}" stroke-width="2.5"/>`;
+  };
+  $('leak').addEventListener('input', leak);
+  const bars = (id, rows, max, color, unit) => {
+    const h = 24, w = 340;
+    $(id).setAttribute('viewBox', `0 0 600 ${rows.length * h + 8}`);
+    $(id).innerHTML = rows.map(([lab, v], i) =>
+      `<text x="0" y="${i * h + 16}">${lab}</text><rect x="210" y="${i * h + 4}" width="${v / max * w}" height="16" fill="${color}"/>` +
+      `<text x="${216 + v / max * w}" y="${i * h + 16}">${v}${unit}</text>`).join('');
+  };
+  const quart = () => bars('q-svg', [['Highest cost (2.36%)', 5.9], ['Third (1.61%)', 7.1], ['Second (1.10%)', 8.4], ['Lowest cost (0.55%)', 9.7]], 10, css('--cost'), '%');
+
+  // 8 building blocks and tails (VCMM Figs 5, 8)
+  const bb = () => {
+    const X = v => 20 + v / 9 * 560, c = css('--discipline'), muted = css('--muted');
+    const blocks = [['real cash 1%', 0, 1], ['inflation 2%', 1, 3], ['equity risk premium 5%', 3, 8]];
+    $('bb-svg').innerHTML = blocks.map(([l, a, b], i) =>
+      `<rect x="${X(a)}" y="20" width="${X(b) - X(a) - 2}" height="34" fill="${c}" opacity="${0.35 + i * 0.3}"/>` +
+      `<text x="${(X(a) + X(b)) / 2}" y="${72 + (i % 2) * 14}" text-anchor="middle">${l}</text>`).join('') +
+      `<text x="${X(3)}" y="14" text-anchor="middle">cash ≈ 3%</text><text x="${X(8)}" y="14" text-anchor="end">equity ≈ 8%</text>` +
+      `<text x="20" y="112" fill="${muted}">Bonds add a 1.2 pp curve slope over cash, then a credit premium for corporates.</text>`;
+  };
+  seg('tail-seg', k => $('tail-out').textContent = k === 'n'
+    ? 'Normal curve (mean 8%, volatility 18%): about 0.3%. A bad decade looks like a freak event.'
+    : 'VCMM: about 4%. Roughly one decade in 25 loses money. Plan for it.');
+
+  // 10 Adviser's Alpha upper ends (Fig. 2)
+  const aa = () => bars('aa-svg', [['Behavioural coaching', 200], ['Withdrawal order', 112], ['Investment selection', 100], ['Asset location', 45], ['Rebalancing', 12]], 200, css('--discipline'), ' bps');
+
+  const draw = () => { mix(); fx(); hstar(); ap(); leak(); quart(); bb(); aa(); };
+  draw();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+})();
+</script>
+</body>
+</html>

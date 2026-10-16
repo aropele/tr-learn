@@ -6,6 +6,8 @@ Vanguard's research on portfolio construction follows the same sequence as an ad
 
 Phases: 1 Framework → 2 Expectations and SAA → 3 The building blocks → 4 Implementation → 5 Goals and decumulation → 6 Client relationship
 
+Interactive guide: [Four principles, one ETF portfolio for an Italian client](etf-portfolio-italian-investor.html), built from the transcribed readings below.
+
 Each phase points to the numbered readings below; the general list on Vanguard research stays in the other document.
 
 ## Phase 1 — Framework and methodologies
