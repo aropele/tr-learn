@@ -59,6 +59,7 @@ BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
 FM_FIELDS = ("id", "title", "publisher", "published", "url")
 PUBLISHER_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+POPULAR_USE = "popular education only; never use for professional or client-specific advice"
 
 
 def front_matter(meta: dict) -> str:
@@ -66,6 +67,8 @@ def front_matter(meta: dict) -> str:
         f"{k}: {'null' if meta[k] is None else json.dumps(meta[k], ensure_ascii=False)}\n"
         for k in FM_FIELDS
     )
+    if meta.get("register") == "popular":
+        body += f"register: \"popular\"\nuse: {json.dumps(POPULAR_USE)}\n"
     return "---\n" + body + "original_prevails: true\n---\n"
 
 
@@ -95,6 +98,7 @@ def run(argv: list[str], repo_root: Path, data_root: Path) -> Path:
     p.add_argument("--file")
     p.add_argument("--canonical-url", default=None)
     p.add_argument("--notes", default="")
+    p.add_argument("--popular", action="store_true", help="mark as popular-education (divulgativa)")
     a = p.parse_args(argv)
 
     if a.published is not None and not PUBLISHED_RE.match(a.published):
@@ -143,6 +147,8 @@ def run(argv: list[str], repo_root: Path, data_root: Path) -> Path:
             "published": a.published, "kind": kind, "url": a.url,
             "canonical_url": a.canonical_url, "fetched_at": fetched_at,
             "original": original, "notes": a.notes}
+    if a.popular:
+        meta["register"] = "popular"
     try:
         if data is not None:
             data_dir.mkdir(parents=True)

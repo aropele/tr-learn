@@ -36,6 +36,16 @@ def test_video_writes_sidecar_and_front_matter():
     assert not (data / "sources").exists()
 
 
+def test_popular_flag_marks_sidecar_and_front_matter():
+    repo, data, _ = dirs()
+    d = run(["https://ofdollarsanddata.com/x/", "--publisher", "ofdollarsanddata",
+             "--title", "Some Post", "--kind", "video", "--popular"], repo, data)
+    meta = json.loads((d / "source.json").read_text(encoding="utf-8"))
+    fm = (d / "transcription.md").read_text(encoding="utf-8")
+    assert meta["register"] == "popular" and fm == front_matter(meta)
+    assert 'register: "popular"' in fm and "professional" in fm
+
+
 def _pdf_args(f):
     return ["https://corporate.vanguard.com/x.pdf", "--publisher", "vanguard", "--title",
             "Vanguard Capital Markets Model", "--published", "2026-09", "--file", str(f)]
