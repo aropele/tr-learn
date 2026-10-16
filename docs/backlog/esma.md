@@ -1,0 +1,35 @@
+# esma.europa.eu: publications to ingest
+
+Backlog of European Securities and Markets Authority (ESMA) publications on the measured costs and net performance of EU retail investment products (the UCITS/ETF side of the pension-fund-vs-ETF theme), collected 2026-10-16 from the server-rendered index pages:
+[risk monitoring / ESMA market reports](https://www.esma.europa.eu/esmas-activities/risk-analysis/risk-monitoring#ESMAMarketReports) (9 of 35 report PDFs kept: all 8 editions of the cost and performance report plus the total-costs report),
+[topical analysis / TRV articles](https://www.esma.europa.eu/esmas-activities/risk-analysis/topical-analysis) (6 of 77),
+[investor corner: cost of investment products](https://www.esma.europa.eu/investor-corner/cost-investment-products) (1 of 13 not already listed).
+Left out: annexes and press releases (they belong to their report), TRV risk monitors and statistical annexes, MiFID/UCITS supervisory briefings, Q&As, opinions and common supervisory actions, crypto, DLT, market structure, derivatives, CCPs, MMFs, AIF leverage, ESG naming, climate, structured retail products.
+
+ESMA is an EU supervisor with nothing to sell: ingest with `--publisher esma` (institutional, no `--popular`). Every URL is a direct PDF on esma.europa.eu, which is the original; no JS or consent wall was hit with a plain fetch. Bias: the mandate leans to investor protection and cost transparency, and the reports feed the PRIIPs and Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit the institution's policy line. Dates below are read from the PDF cover or first page. When a row is archived, set Status to its id.
+
+- Dead URLs: search order is another esma.europa.eu URL (many PDFs exist under both `/sites/default/files/library/` and a dated `/sites/default/files/YYYY-MM/` path) > third-party copy (e.g. dirittobancario.it hosts several) > Wayback (`/web/<ts>id_/<url>`).
+- The 2020 edition's URL says `esma50-165-1106` but the cover prints `ESMA 50-165-1098`; the 2022 edition (`50-165-1677`) is dated 5 April 2022 although its number is lower than the 2021 edition's. Two editions came out in 2023 (January and December; ESMA brought the cycle forward), so the report year is not the publication year from the December 2023 edition on.
+- TRV articles from 2019 and 2020 are excerpts of the half-yearly TRV report and print only the issue (`No. 2, 2019`), no day: keep `YYYY` unless the full TRV issue is used.
+- Italy: the annual cost and performance reports carry country breakdowns with Italy (the 2019 edition in the body; later editions mostly in separate annex PDFs, linked from each report page, not listed here). The total-costs report mentions Italy a few times; the TRV articles have no Italy-specific data.
+
+| Published | Title | Type | Topic | URL | Status |
+|---|---|---|---|---|---|
+| 2026-03-03 | ESMA Market Report: Costs and Performance of EU Retail Investment Products 2025 | market-report | costs | https://www.esma.europa.eu/sites/default/files/2026-03/ESMA50-1949966494-4065_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf | todo |
+| 2025-11-06 | Report on total costs of investing in UCITS and AIFs | market-report | costs | https://www.esma.europa.eu/sites/default/files/2025-11/ESMA50-1949966494-3918_Report_on_total_costs_of_investing_in_UCITS_and_AIFs.pdf | todo |
+| 2025-02-19 | The scale factor: Impact of size on EU fund cost structures | trv-article | costs | https://www.esma.europa.eu/sites/default/files/2025-02/ESMA50-524821-3575_The_scale_factor_Impact_of_size_on_EU_fund_cost_structures.pdf | todo |
+| 2025-01-14 | ESMA Market Report: Costs and Performance of EU Retail Investment Products 2024 | market-report | costs | https://www.esma.europa.eu/sites/default/files/2025-01/ESMA50-524821-3525_ESMA_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf | todo |
+| 2024-07-09 | Neo-brokers in the EU: Developments, benefits and risks | trv-article | retail-access | https://www.esma.europa.eu/sites/default/files/2024-07/ESMA50-524821-3402_TRV_Article_Neo-brokers_in_the_EU.pdf | todo |
+| 2023-12-18 | ESMA Market Report: Costs and Performance of EU Retail Investment Products 2023 (December edition, 2013-2022) | market-report | costs | https://www.esma.europa.eu/sites/default/files/2023-12/ESMA50-524821-3052_Market_Report_on_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf | todo |
+| 2023-01-17 | ESMA Market Report: Costs and Performance of EU Retail Investment Products 2023 (January edition, 2012-2021) | market-report | costs | https://www.esma.europa.eu/sites/default/files/2023-01/esma50-165-2357-esma_statistical_report_on_costs_and_performance_of_eu_retail_investment_products.pdf | todo |
+| 2022-07-20 | Key Retail Risk Indicators for the EU single market | trv-article | costs | https://www.esma.europa.eu/sites/default/files/library/esma50-164-2193_trv_article_key_retail_risk_indicators_for_the_eu_single_market.pdf | todo |
+| 2022-05-23 | The drivers of the costs and performance of ESG funds | trv-article | costs | https://www.esma.europa.eu/sites/default/files/library/esma_50-165-2146_drivers_of_costs_and_performance_of_esg_funds.pdf | todo |
+| 2022-04-05 | ESMA Annual Statistical Report: Performance and Costs of EU Retail Investment Products 2022 | market-report | costs | https://www.esma.europa.eu/sites/default/files/library/esma_50-165-1677_asr_performance_and_costs_of_eu_retail_investment_products.pdf | todo |
+| 2021-04-14 | ESMA Annual Statistical Report: Performance and Costs of Retail Investment Products in the EU 2021 | market-report | costs | https://www.esma.europa.eu/sites/default/files/library/esma_50-165-1710_asr_performance_and_costs_of_eu_retail_investment_products.pdf | todo |
+| 2020 | Costs and performance of potential closet index funds | trv-article | closet-indexing | https://www.esma.europa.eu/sites/default/files/trv_2020_2-costs_and_performance_of_potential_closet_index_funds.pdf | todo |
+| 2020-04-06 | ESMA Annual Statistical Report: Performance and Costs of Retail Investment Products in the EU 2020 | market-report | costs | https://www.esma.europa.eu/sites/default/files/library/esma50-165-1106-asr-performance_and_costs.pdf | todo |
+| 2019 | Net performance of active and passive equity UCITS | trv-article | active-vs-passive | https://www.esma.europa.eu/sites/default/files/trv_2019_2-net_performance_of_active_and_passive_equity_ucits.pdf | todo |
+| 2019-01-10 | ESMA Annual Statistical Report: Performance and costs of retail investment products in the EU 2019 | market-report | costs | https://www.esma.europa.eu/sites/default/files/library/esma50-165-731-asr-performance_and_costs_of_retail_investments_products_in_the_eu.pdf | todo |
+| 2016-02-02 | Supervisory work on potential closet index tracking | statement | closet-indexing | https://www.esma.europa.eu/sites/default/files/library/2016-165_public_statement_-_supervisory_work_on_potential_closet_index_tracking.pdf | todo |
+
+16 publications.
