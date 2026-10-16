@@ -17,7 +17,7 @@ Out of scope: ADRs, citation rigor ("coverage read" tracking), figure images, au
 | In git | `source.json` sidecars, `transcription.md`, themes, tools, `CLAUDE.md` |
 | Transcriptions | Curated by Claude from the original; clean Markdown; the original prevails on any divergence |
 | Figures | No images. Each figure = caption + text description of what it shows + page reference |
-| Language | Everything in English (transcriptions, repo docs, theme READMEs; the Italian artifact is translated) |
+| Language | Transcriptions keep the source language (English or Italian, never translated); repo docs and theme READMEs in English |
 
 ## Layout
 

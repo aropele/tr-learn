@@ -14,7 +14,7 @@ Spec: `docs/superpowers/specs/2026-10-15-tr-learn-archive-design.md`.
 - `source.json` fields: id, title, publisher, authors, published (`YYYY`, `YYYY-MM`, `YYYY-MM-DD` or null), kind (`pdf|html|video|summary`), url, canonical_url, fetched_at, original (`{path, sha256}`, path relative to `$DATA_PATH/tr-learn/`; null for videos), notes.
 - `transcription.md` starts with a front-matter block generated from the sidecar (id, title, publisher, published, url, `original_prevails: true`). Never edit it by hand; `check.py` compares it.
 - The original prevails on any divergence. No images: each figure = caption + text description + page reference.
-- Everything in English (the Italian artifact is translated).
+- Transcriptions keep the source language: English source in English, Italian source in Italian (never translated). Repo docs and theme READMEs in English.
 - Python stdlib only, always via `uv run`, never bare `python`. Run from the repo root.
 - Stage explicit paths only (no `git add -A`, `.`, or `commit -a`). Work on `main`.
 
