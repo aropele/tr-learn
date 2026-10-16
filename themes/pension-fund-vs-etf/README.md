@@ -76,4 +76,13 @@ How the pieces combine, per EUR C of gross income set aside for n years (t = mar
 
 The deduction gives a head start of t on day one; the ETF wins back ground only through lower costs, deferred taxation of returns and liquidity. Higher t, lower ISC and a longer horizon favour the fund; a low marginal rate, a high-cost fund (many PIPs) or a need for the money before retirement favour the ETF.
 
+## Phase 6 — A concrete fund: Laborfonds
+
+A contractual fund for workers in Trentino-Alto Adige, used as a worked case. Four lines by distance from retirement: Garantita (up to 5 years), Prudente Etica (5–10), Bilanciata (10–15, about 35% equities since July 2025), Dinamica (over 15, about 70% equities). The Bilanciata benchmark changed five times since 2001, which matters when comparing its returns with an ETF portfolio.
+
+| # | Reading | Year | Why it matters |
+|---|---------|------|----------------|
+| 10 | [Documento sulla politica di investimento](../../sources/laborfonds/2026-09-03-documento-sulla-politica-di-investimento/transcription.md) · [original](https://www.laborfonds.it/images/pdf/documenti-del-fondo/altri-documenti-del-fondo/IT_DocumentoSullaPoliticaDiInvestimento.pdf) | Sep 2026 | Strategic allocation, expected return and volatility per line; life-cycle profile from November 2026; changes of the last three years |
+| 11 | [Nota informativa - Parte II, Le opzioni di investimento](../../sources/laborfonds/2026-09-04-nota-informativa-parte-ii-le-opzioni-di-investimento/transcription.md) · [original](https://www.laborfonds.it/images/pdf/documenti-del-fondo/nota-informativa/IT_04ParteII_InfoIntegrative_OpzioniDiInvestimento.pdf) | Sep 2026 | Actual allocation at end 2025, current and past benchmarks since 2001, yearly net returns, TER |
+
 Recommended order if short on time: 2 → 4 → 9 → 6.
