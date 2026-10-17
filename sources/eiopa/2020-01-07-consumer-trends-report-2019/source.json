@@ -1,0 +1,16 @@
+{
+  "id": "2020-01-07-consumer-trends-report-2019",
+  "title": "Consumer Trends Report 2019",
+  "publisher": "eiopa",
+  "authors": [],
+  "published": "2020-01-07",
+  "kind": "pdf",
+  "url": "https://www.eiopa.europa.eu/document/download/e4fc2a4d-62d4-45f7-8784-1c251c590562_en?filename=Consumer%20Trends%20Report%202019.pdf",
+  "canonical_url": null,
+  "fetched_at": "2026-10-17T18:11:21Z",
+  "original": {
+    "path": "sources/eiopa/2020-01-07-consumer-trends-report-2019/original.pdf",
+    "sha256": "1a1b21bf00ccbc4b5dbf9cda09ba9a0015f7dd78a211a8c82559d2aed425db25"
+  },
+  "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. No date printed; date from the publication page."
+}

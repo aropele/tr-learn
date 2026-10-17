@@ -1,0 +1,16 @@
+{
+  "id": "2020-04-06-cost-past-performance-2020-report",
+  "title": "Cost and past performance 2020 report",
+  "publisher": "eiopa",
+  "authors": [],
+  "published": "2020-04-06",
+  "kind": "pdf",
+  "url": "https://www.eiopa.europa.eu/document/download/8262cdb0-d818-4dee-90bc-59f39075718b_en?filename=Cost%20and%20past%20peformance%202020%20report%20corrigendum.pdf",
+  "canonical_url": null,
+  "fetched_at": "2026-10-17T18:11:20Z",
+  "original": {
+    "path": "sources/eiopa/2020-04-06-cost-past-performance-2020-report/original.pdf",
+    "sha256": "05ea6fc3cb2a59a1bef330b0d989eeb3a7888c67229a242f0dc1b4d4f2f2bc6e"
+  },
+  "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. The page lists only this 'corrigendum' PDF: it is the full corrected report (55 pp, cover April 2020), not an errata sheet. Page: https://www.eiopa.europa.eu/publications/cost-and-past-performance-2020-report_en; the news item's /content/cost-and-past-performance-2020-report_en link is dead (404)."
+}

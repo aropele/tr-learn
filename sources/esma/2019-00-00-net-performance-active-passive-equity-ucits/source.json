@@ -1,0 +1,16 @@
+{
+  "id": "2019-00-00-net-performance-active-passive-equity-ucits",
+  "title": "Net performance of active and passive equity UCITS",
+  "publisher": "esma",
+  "authors": [],
+  "published": "2019",
+  "kind": "pdf",
+  "url": "https://www.esma.europa.eu/sites/default/files/trv_2019_2-net_performance_of_active_and_passive_equity_ucits.pdf",
+  "canonical_url": null,
+  "fetched_at": "2026-10-17T18:11:09Z",
+  "original": {
+    "path": "sources/esma/2019-00-00-net-performance-active-passive-equity-ucits/original.pdf",
+    "sha256": "a28afeaf5a0cc66f8777ad8ef80a5e537a4e2804d0fcff273df638f9435125cf"
+  },
+  "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line. Excerpt of TRV No. 2, 2019; no day printed."
+}

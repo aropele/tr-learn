@@ -1,0 +1,16 @@
+{
+  "id": "2022-04-05-esma-annual-statistical-report-performance-costs-eu-retail-investment",
+  "title": "ESMA Annual Statistical Report: Performance and Costs of EU Retail Investment Products 2022",
+  "publisher": "esma",
+  "authors": [],
+  "published": "2022-04-05",
+  "kind": "pdf",
+  "url": "https://www.esma.europa.eu/sites/default/files/library/esma_50-165-1677_asr_performance_and_costs_of_eu_retail_investment_products.pdf",
+  "canonical_url": null,
+  "fetched_at": "2026-10-17T18:11:07Z",
+  "original": {
+    "path": "sources/esma/2022-04-05-esma-annual-statistical-report-performance-costs-eu-retail-investment/original.pdf",
+    "sha256": "f5bed8631262d983c5d19cb63818a3d8b15e3c1970216c972c0caeed5e94bfc4"
+  },
+  "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line. Dated 5 April 2022 although its number is lower than the 2021 edition's."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "2024-12-19-consumer-trends-report-2024",
+  "title": "Consumer Trends Report 2024",
+  "publisher": "eiopa",
+  "authors": [],
+  "published": "2024-12-19",
+  "kind": "pdf",
+  "url": "https://www.eiopa.europa.eu/document/download/4f3b2964-455d-497e-b69f-b5c5939d7aee_en?filename=Eurobarometer%20CTR%202024%20-%20Report.pdf",
+  "canonical_url": null,
+  "fetched_at": "2026-10-17T18:11:13Z",
+  "original": {
+    "path": "sources/eiopa/2024-12-19-consumer-trends-report-2024/original.pdf",
+    "sha256": "d75a04cfe244296588ea4edd4a18c19320122543c71cf244c9faef8dacaa4fdd"
+  },
+  "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. Date from the PDF (19 Dec 2024); page shows 2025-01-15."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "2020-04-06-esma-annual-statistical-report-performance-costs-retail-investment",
+  "title": "ESMA Annual Statistical Report: Performance and Costs of Retail Investment Products in the EU 2020",
+  "publisher": "esma",
+  "authors": [],
+  "published": "2020-04-06",
+  "kind": "pdf",
+  "url": "https://www.esma.europa.eu/sites/default/files/library/esma50-165-1106-asr-performance_and_costs.pdf",
+  "canonical_url": null,
+  "fetched_at": "2026-10-17T18:11:09Z",
+  "original": {
+    "path": "sources/esma/2020-04-06-esma-annual-statistical-report-performance-costs-retail-investment/original.pdf",
+    "sha256": "582d95ccec0b1e6c95a41054d1a242eef59c9f4e681ed66e6f22bff08e181eef"
+  },
+  "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line. URL says esma50-165-1106 but the cover prints ESMA 50-165-1098."
+}
