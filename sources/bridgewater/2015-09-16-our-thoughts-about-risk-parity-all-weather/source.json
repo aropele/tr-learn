@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T12:53:16Z",
   "original": {
     "path": "sources/bridgewater/2015-09-16-our-thoughts-about-risk-parity-all-weather/original.pdf",
-    "sha256": "b507ac9fd365e892c5c95bef615ae2d4867bb6702d0ad8ab1c89f2119675456f"
+    "sha256": "b507ac9fd365e892c5c95bef615ae2d4867bb6702d0ad8ab1c89f2119675456f",
+    "md5": "97d513bc2bdfd3b7346d9c9713465ca6"
   },
   "notes": "Bridgewater Daily Observations by Ray Dalio, Bob Prince, Greg Jensen. No official Bridgewater URL; copy fetched from the CMG Wealth mirror"
 }

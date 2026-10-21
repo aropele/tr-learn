@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T07:29:07Z",
   "original": {
     "path": "sources/vanguard/2026-09-00-vanguard-capital-markets-model/original.pdf",
-    "sha256": "38b9abf79c7c0360c4692c7e8c4d60ac4c2c29a904bd6b9df3268e3382a9b306"
+    "sha256": "38b9abf79c7c0360c4692c7e8c4d60ac4c2c29a904bd6b9df3268e3382a9b306",
+    "md5": "773082d332b7e0cc7c00dfdd41b0945c"
   },
   "notes": ""
 }

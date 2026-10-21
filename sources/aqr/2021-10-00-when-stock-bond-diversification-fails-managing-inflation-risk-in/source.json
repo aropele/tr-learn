@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:26Z",
   "original": {
     "path": "sources/aqr/2021-10-00-when-stock-bond-diversification-fails-managing-inflation-risk-in/original.pdf",
-    "sha256": "a6cce57adf755b7aca33ed4c0704dcab15f89941c4edb1f226705228cd556f66"
+    "sha256": "a6cce57adf755b7aca33ed4c0704dcab15f89941c4edb1f226705228cd556f66",
+    "md5": "799df6c1dfdb2b682efcf9e47cc9583c"
   },
   "notes": "Ashwin Thapar, Thomas Maloney, Alfie Brixton. AQR white paper, October 2021"
 }

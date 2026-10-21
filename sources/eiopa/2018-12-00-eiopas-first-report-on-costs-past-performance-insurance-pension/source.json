@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:12:16Z",
   "original": {
     "path": "sources/eiopa/2018-12-00-eiopas-first-report-on-costs-past-performance-insurance-pension/original.pdf",
-    "sha256": "45bf353905e867a85c53985670bb1e4673ced5e32df0833e92363623aa1e924d"
+    "sha256": "45bf353905e867a85c53985670bb1e4673ced5e32df0833e92363623aa1e924d",
+    "md5": "e5df0a1979bfb5e0ca89fb7abcca80d4"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. Cover prints December 2018; page shows 2019-06-25. Saved via curl: the server kept closing scripted downloads mid-transfer."
 }

@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T13:59:24Z",
   "original": {
     "path": "sources/bridgewater/2021-05-00-portfolio-construction-in-mp3-world/original.pdf",
-    "sha256": "aa0e818ea59253c8d1aaf0535751f780a9fcfccf4f9b1ac333400859751e998f"
+    "sha256": "aa0e818ea59253c8d1aaf0535751f780a9fcfccf4f9b1ac333400859751e998f",
+    "md5": "db4118cf10cdc3371dbe6c60062fa0a5"
   },
   "notes": "Bob Prince slides for the Top1000funds Fiduciary Investors Symposium (digital, May 2021). No printed date: month from the conference and PDF metadata (2021-05-26). Host is behind a Cloudflare challenge; the user saved the PDF from a browser and it was ingested with --file"
 }

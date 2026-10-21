@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-16T05:00:07Z",
   "original": {
     "path": "sources/covip/2026-00-00-supplementary-pension-funds-in-italy-at-end-2025-main-data/original.pdf",
-    "sha256": "7d4f8563cc537f67067326fb0530fa224ff9d1ef1e1e5e724ac463a2e698e4e9"
+    "sha256": "7d4f8563cc537f67067326fb0530fa224ff9d1ef1e1e5e724ac463a2e698e4e9",
+    "md5": "be683f43b05e00b9159192e1ca727cb9"
   },
   "notes": "COVIP English summary of the Annual Report for 2025; no date printed, year from the covip.it annual-reports listing. Saved via browser: covip.it returns 403 to scripts."
 }

@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:24Z",
   "original": {
     "path": "sources/eiopa/2017-12-11-opinion-on-monetary-incentives-remuneration-between-providers-asset/original.pdf",
-    "sha256": "4a9c05b32fa630c33129becdacf86058817b38dc4dbee0458946ff083e3afcff"
+    "sha256": "4a9c05b32fa630c33129becdacf86058817b38dc4dbee0458946ff083e3afcff",
+    "md5": "33d374780786cc5a9f33d798f7f35f99"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. EIOPA-BoS-17/295, dated 11 Dec 2017 in the PDF; page shows 2019-02-11."
 }

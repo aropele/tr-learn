@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:09Z",
   "original": {
     "path": "sources/esma/2019-00-00-net-performance-active-passive-equity-ucits/original.pdf",
-    "sha256": "a28afeaf5a0cc66f8777ad8ef80a5e537a4e2804d0fcff273df638f9435125cf"
+    "sha256": "a28afeaf5a0cc66f8777ad8ef80a5e537a4e2804d0fcff273df638f9435125cf",
+    "md5": "21de5d8437d3a9b91fd15222eeff1a2a"
   },
   "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line. Excerpt of TRV No. 2, 2019; no day printed."
 }

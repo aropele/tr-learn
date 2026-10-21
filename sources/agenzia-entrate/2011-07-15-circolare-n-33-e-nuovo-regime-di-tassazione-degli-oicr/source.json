@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-16T05:00:06Z",
   "original": {
     "path": "sources/agenzia-entrate/2011-07-15-circolare-n-33-e-nuovo-regime-di-tassazione-degli-oicr/original.pdf",
-    "sha256": "2faf149caa3eea448c9362407e14b13178e4426e16be5485e712d2ec856d93b3"
+    "sha256": "2faf149caa3eea448c9362407e14b13178e4426e16be5485e712d2ec856d93b3",
+    "md5": "e805643e83fa4c8a94698ca8c287ae47"
   },
   "notes": "Agenzia delle Entrate, 15 Jul 2011. Rates quoted are the 2011 ones (20%); since 1 Jul 2014 the rate is 26% (DL 66/2014), 12.5% kept on the government-bond share. Defines fund/ETF proceeds as redditi di capitale and losses as redditi diversi."
 }

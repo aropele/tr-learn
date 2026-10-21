@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:34Z",
   "original": {
     "path": "sources/aqr/2017-00-00-market-timing-sin-little-resolving-valuation-timing-puzzle/original.pdf",
-    "sha256": "3d7e1219d7a061d0487c27a46709f5ba0190508c66f5193a6e935b2965dcf821"
+    "sha256": "3d7e1219d7a061d0487c27a46709f5ba0190508c66f5193a6e935b2965dcf821",
+    "md5": "cefc1a69acebf6028101803d4c05badd"
   },
   "notes": "Cliff Asness, Antti Ilmanen, Thomas Maloney. Journal of Investment Management, Vol. 15 No. 3 (2017; no month printed); reprint hosted by AQR"
 }

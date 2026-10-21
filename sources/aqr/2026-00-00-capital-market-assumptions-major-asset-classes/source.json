@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:22:57Z",
   "original": {
     "path": "sources/aqr/2026-00-00-capital-market-assumptions-major-asset-classes/original.pdf",
-    "sha256": "b4f86610040b484ab32a7e3e9200ef06115b1f3d0f250220cdb326e12ea885d4"
+    "sha256": "b4f86610040b484ab32a7e3e9200ef06115b1f3d0f250220cdb326e12ea885d4",
+    "md5": "8b281cd53d8a0a1676b8cab8b0f4aca4"
   },
   "notes": "AQR Portfolio Solutions Group. Alternative Thinking 2026 Issue 1 (no month printed; PDF metadata 2026-01-12). Includes a section on currency risk and hedging"
 }

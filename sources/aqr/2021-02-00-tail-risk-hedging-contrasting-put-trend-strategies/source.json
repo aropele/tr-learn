@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:36Z",
   "original": {
     "path": "sources/aqr/2021-02-00-tail-risk-hedging-contrasting-put-trend-strategies/original.pdf",
-    "sha256": "c5ec1bdadcf6e0beabf81891433213694308bc083cd480f654ab930fbeae2eba"
+    "sha256": "c5ec1bdadcf6e0beabf81891433213694308bc083cd480f654ab930fbeae2eba",
+    "md5": "943dffe9973e728ff701b66f8cc6d8fa"
   },
   "notes": "Antti Ilmanen, Ashwin Thapar, Harsha Tummala, Dan Villalon. Journal of Systematic Investing, Vol. 1 Issue 1, February 2021; hosted by AQR"
 }

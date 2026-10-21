@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T07:29:08Z",
   "original": {
     "path": "sources/vanguard/2024-09-00-vanguard-asset-allocation-model-investment-solution-active-passive/original.pdf",
-    "sha256": "939c78ab7810c5fee189b690d6bedf27309a897211a5eb1ed6f31ed5168f8d14"
+    "sha256": "939c78ab7810c5fee189b690d6bedf27309a897211a5eb1ed6f31ed5168f8d14",
+    "md5": "e764902fc79e2ec717c69350306d4c8b"
   },
   "notes": ""
 }

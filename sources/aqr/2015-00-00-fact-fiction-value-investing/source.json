@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:22:47Z",
   "original": {
     "path": "sources/aqr/2015-00-00-fact-fiction-value-investing/original.pdf",
-    "sha256": "9c8c2a53ce516d750e59eaf00596a2087f53c1b6052fefedda2f21971eb1d161"
+    "sha256": "9c8c2a53ce516d750e59eaf00596a2087f53c1b6052fefedda2f21971eb1d161",
+    "md5": "3448b431a319aa9a6c20a8133b16d4ff"
   },
   "notes": "Clifford Asness, Andrea Frazzini, Ronen Israel, Tobias Moskowitz. The Journal of Portfolio Management, Vol. 42 No. 1, Fall 2015 (no month printed); reprint hosted by AQR"
 }

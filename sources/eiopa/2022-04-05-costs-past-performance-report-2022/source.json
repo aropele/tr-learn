@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:16Z",
   "original": {
     "path": "sources/eiopa/2022-04-05-costs-past-performance-report-2022/original.pdf",
-    "sha256": "c617583473eeae30665cdadcbf344d1f236dedb972a1ad41cffe50ffe47ac1da"
+    "sha256": "c617583473eeae30665cdadcbf344d1f236dedb972a1ad41cffe50ffe47ac1da",
+    "md5": "2b0f72e53adcdd319dc3b282677247be"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money."
 }

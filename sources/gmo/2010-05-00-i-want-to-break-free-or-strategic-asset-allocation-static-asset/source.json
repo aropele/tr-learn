@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:23:01Z",
   "original": {
     "path": "sources/gmo/2010-05-00-i-want-to-break-free-or-strategic-asset-allocation-static-asset/original.pdf",
-    "sha256": "b6859d76ea78fa375ea038717d56780d2c1ea00d772890782d0513a98f38b2c9"
+    "sha256": "b6859d76ea78fa375ea038717d56780d2c1ea00d772890782d0513a98f38b2c9",
+    "md5": "094db47529632472081893f1eb117904"
   },
   "notes": "James Montier. GMO White Paper, May 2010"
 }

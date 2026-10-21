@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:33Z",
   "original": {
     "path": "sources/gmo/2021-09-00-what-to-do-in-case-sustained-inflation-what-if-were-wrong/original.pdf",
-    "sha256": "cc36e1efdcb8c269bc310134c19de6e6701cf635bbb971e954502039d65fd27d"
+    "sha256": "cc36e1efdcb8c269bc310134c19de6e6701cf635bbb971e954502039d65fd27d",
+    "md5": "3e9fbeece54428e7a22076efab54cce5"
   },
   "notes": "James Montier, Philip Pilkington. GMO White Paper, September 2021; Part 2 of a two-part series on inflation (Part 1: Inflation – Tall Tales and True Causes, August 2021)"
 }

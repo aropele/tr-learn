@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:06Z",
   "original": {
     "path": "sources/esma/2023-01-17-esma-market-report-costs-performance-eu-retail-investment-products/original.pdf",
-    "sha256": "67d20171ebf6a568eaf37519e970fc28102963f30c42236805963a2d789da73a"
+    "sha256": "67d20171ebf6a568eaf37519e970fc28102963f30c42236805963a2d789da73a",
+    "md5": "bddb742febf29f4a85f02d78d08377d1"
   },
   "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line. January 2023 edition, data 2012-2021."
 }

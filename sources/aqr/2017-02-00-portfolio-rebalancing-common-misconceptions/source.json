@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:39Z",
   "original": {
     "path": "sources/aqr/2017-02-00-portfolio-rebalancing-common-misconceptions/original.pdf",
-    "sha256": "f290f72cf8ed40a60b944225cee3a3fa2e356cbb5d1f2588215b326ba5385edd"
+    "sha256": "f290f72cf8ed40a60b944225cee3a3fa2e356cbb5d1f2588215b326ba5385edd",
+    "md5": "dba5254525f5832e298db5f4be6e13d3"
   },
   "notes": "John Huss, Thomas Maloney. AQR white paper, February 2017"
 }

@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:10Z",
   "original": {
     "path": "sources/aqr/2023-06-00-international-diversification-still-not-crazy-after-all-these-years/original.pdf",
-    "sha256": "a898974bd8b138e0c488e91400549048d6e802a6e4a1dfb29fba8823f4b4940d"
+    "sha256": "a898974bd8b138e0c488e91400549048d6e802a6e4a1dfb29fba8823f4b4940d",
+    "md5": "ba5cc83ada19b8a3ba1b6fd9136d9784"
   },
   "notes": "Cliff Asness, Antti Ilmanen, Dan Villalon. The Journal of Portfolio Management, Vol. 49 No. 6, June 2023; reprint hosted by AQR"
 }

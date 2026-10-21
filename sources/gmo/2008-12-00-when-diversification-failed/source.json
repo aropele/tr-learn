@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:37Z",
   "original": {
     "path": "sources/gmo/2008-12-00-when-diversification-failed/original.pdf",
-    "sha256": "1a49fbefed28e6cebbcce9e3cad3e9a8ce5a8a5532aa3b49764446b9b0373478"
+    "sha256": "1a49fbefed28e6cebbcce9e3cad3e9a8ce5a8a5532aa3b49764446b9b0373478",
+    "md5": "878372bc3e99b1b4deb2d877eb88c24a"
   },
   "notes": "Ben Inker. GMO White Paper, December 2008"
 }

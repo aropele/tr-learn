@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-16T05:00:06Z",
   "original": {
     "path": "sources/covip/2022-04-00-guida-introduttiva-alla-previdenza-complementare/original.pdf",
-    "sha256": "b290491535f499240c1a78705ef8d8fc18e277680de450dd6be926cec997ef98"
+    "sha256": "b290491535f499240c1a78705ef8d8fc18e277680de450dd6be926cec997ef98",
+    "md5": "dd1cfed20fda386e9b659d9f542ab666"
   },
   "notes": "COVIP. Content updated to April 2022 (p. 2); file re-issued 17 Sep 2026 with a notice that parts are under revision for the 2026 Budget Law (L. 199/2025), so the deduction limit shown is the pre-2026 EUR 5,164.57. Saved via browser: covip.it returns 403 to scripts."
 }

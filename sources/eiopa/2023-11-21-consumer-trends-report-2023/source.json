@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:15Z",
   "original": {
     "path": "sources/eiopa/2023-11-21-consumer-trends-report-2023/original.pdf",
-    "sha256": "dfc7e43b54a8d33ec79ff932d4da7c232a47ec51668106713da297fc87ca9474"
+    "sha256": "dfc7e43b54a8d33ec79ff932d4da7c232a47ec51668106713da297fc87ca9474",
+    "md5": "2e7d943cdf0016339f0b9c7ee91d223b"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. Date from the PDF (21 Nov 2023); page shows 2024-01-23."
 }

@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:18Z",
   "original": {
     "path": "sources/eiopa/2021-10-07-opinion-on-supervisory-reporting-costs-charges-iorps/original.pdf",
-    "sha256": "d244c91776df211d1b8f34b15c21210ce4a04fe30674db05a7ae0c65b4f2c3ca"
+    "sha256": "d244c91776df211d1b8f34b15c21210ce4a04fe30674db05a7ae0c65b4f2c3ca",
+    "md5": "e3b8a4ab8dab7c66ed9a5da9d45a8d7c"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money."
 }

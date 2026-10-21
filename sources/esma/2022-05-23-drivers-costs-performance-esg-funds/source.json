@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:07Z",
   "original": {
     "path": "sources/esma/2022-05-23-drivers-costs-performance-esg-funds/original.pdf",
-    "sha256": "4d7041ff7b3079777c1e9131775d7e365ed4727351b325777f262a163919d0e3"
+    "sha256": "4d7041ff7b3079777c1e9131775d7e365ed4727351b325777f262a163919d0e3",
+    "md5": "91d3e4a6ee245538afc6401f54409cb9"
   },
   "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line."
 }

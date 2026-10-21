@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:11Z",
   "original": {
     "path": "sources/esma/2016-02-02-supervisory-work-on-potential-closet-index-tracking/original.pdf",
-    "sha256": "e13f43c3f928dac86642c19b7bcefc62b63abb836652802bd2d42a6d292781cf"
+    "sha256": "e13f43c3f928dac86642c19b7bcefc62b63abb836652802bd2d42a6d292781cf",
+    "md5": "8a75f56858ee8b435fa236f894f3780f"
   },
   "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line."
 }

@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:07Z",
   "original": {
     "path": "sources/esma/2022-07-20-key-retail-risk-indicators-eu-single-market/original.pdf",
-    "sha256": "c6461ce58affae0d43c490898872648b354cede1265459e7fe06bc64d9fe433c"
+    "sha256": "c6461ce58affae0d43c490898872648b354cede1265459e7fe06bc64d9fe433c",
+    "md5": "fc40908391c01840710d5d7aafd8c88e"
   },
   "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line."
 }

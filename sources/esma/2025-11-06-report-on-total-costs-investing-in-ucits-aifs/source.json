@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:04Z",
   "original": {
     "path": "sources/esma/2025-11-06-report-on-total-costs-investing-in-ucits-aifs/original.pdf",
-    "sha256": "16fa77902a595ea6afe03497894d18bf8db44570fcfc8488df4c8ca9e9953a21"
+    "sha256": "16fa77902a595ea6afe03497894d18bf8db44570fcfc8488df4c8ca9e9953a21",
+    "md5": "350a8076c0d3ebf39dc21937fc458859"
   },
   "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line."
 }

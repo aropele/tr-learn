@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-16T05:00:07Z",
   "original": {
     "path": "sources/covip/2026-06-10-relazione-per-lanno-2025-considerazioni-del-presidente/original.pdf",
-    "sha256": "4b6bd1f032644bfb38795d4aad9aed894b2910c167bad5de87cb5283290fd963"
+    "sha256": "4b6bd1f032644bfb38795d4aad9aed894b2910c167bad5de87cb5283290fd963",
+    "md5": "f8793b31d86788ea155e119c5c14405e"
   },
   "notes": "COVIP, Rome, 10 Jun 2026. Saved via browser: covip.it returns 403 to scripts."
 }

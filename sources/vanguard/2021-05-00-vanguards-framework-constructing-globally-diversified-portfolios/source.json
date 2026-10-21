@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T07:33:29Z",
   "original": {
     "path": "sources/vanguard/2021-05-00-vanguards-framework-constructing-globally-diversified-portfolios/original.pdf",
-    "sha256": "9a4defbd6655af1ce713e0dc795fc9c0a3ad38570ce8a82a6fd3b703d1875265"
+    "sha256": "9a4defbd6655af1ce713e0dc795fc9c0a3ad38570ce8a82a6fd3b703d1875265",
+    "md5": "a9b1edb114ff7b32e4ddb06c4ffbc341"
   },
   "notes": "Artifact URL https://corpaemdisp.essp.c1.vanguard.com/content/dam/corp/research/pdf/Vanguards-Framework-for-constructing-globally-diversified-portfolios-US-ISGCGP_062021_july12-update_Online.pdf dead on 2026-10-15 (host does not resolve); same title/authors, fetched from vanguardmexico.com; this copy is dated May 2021, the artifact filename suggests a June 2021 / July 12 update, so edition may differ slightly"
 }

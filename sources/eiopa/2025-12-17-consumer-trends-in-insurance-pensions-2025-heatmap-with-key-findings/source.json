@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:12Z",
   "original": {
     "path": "sources/eiopa/2025-12-17-consumer-trends-in-insurance-pensions-2025-heatmap-with-key-findings/original.pdf",
-    "sha256": "899a5aa50fc2f7d3b71d847c0d1dbaf000867fce753de92eab90de6a030876b5"
+    "sha256": "899a5aa50fc2f7d3b71d847c0d1dbaf000867fce753de92eab90de6a030876b5",
+    "md5": "9ada2c001f8b22463fe3a03df71226d1"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. No date printed; date from the publication page."
 }

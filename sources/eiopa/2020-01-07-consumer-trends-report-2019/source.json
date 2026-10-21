@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:21Z",
   "original": {
     "path": "sources/eiopa/2020-01-07-consumer-trends-report-2019/original.pdf",
-    "sha256": "1a1b21bf00ccbc4b5dbf9cda09ba9a0015f7dd78a211a8c82559d2aed425db25"
+    "sha256": "1a1b21bf00ccbc4b5dbf9cda09ba9a0015f7dd78a211a8c82559d2aed425db25",
+    "md5": "a52c423f04daa8bc71a5a7b1e76f8660"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. No date printed; date from the publication page."
 }

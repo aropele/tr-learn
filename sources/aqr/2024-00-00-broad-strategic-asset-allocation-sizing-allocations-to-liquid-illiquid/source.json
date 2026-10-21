@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:29Z",
   "original": {
     "path": "sources/aqr/2024-00-00-broad-strategic-asset-allocation-sizing-allocations-to-liquid-illiquid/original.pdf",
-    "sha256": "b5acb48270d53f09130f7919b73421ac597ed0fcb29fcccdfa373b74f53474f7"
+    "sha256": "b5acb48270d53f09130f7919b73421ac597ed0fcb29fcccdfa373b74f53474f7",
+    "md5": "62dd5ca70f15b70eb2b69461a8c99218"
   },
   "notes": "Thomas Maloney (lead author). AQR Alternative Thinking 2024 Issue 3 (no month printed)"
 }

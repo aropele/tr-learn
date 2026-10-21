@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:22:43Z",
   "original": {
     "path": "sources/aqr/2017-00-00-century-evidence-on-trend-following-investing/original.pdf",
-    "sha256": "d2b96b73e6b7e90c244562822e98455c110796bc03056d12fff17fb1bf825dfa"
+    "sha256": "d2b96b73e6b7e90c244562822e98455c110796bc03056d12fff17fb1bf825dfa",
+    "md5": "873785739566c31a72f109027ec9af8b"
   },
   "notes": "Brian Hurst, Yao Hua Ooi, Lasse Heje Pedersen. The Journal of Portfolio Management, Vol. 44 No. 1, Fall 2017 (no month printed); reprint hosted by AQR"
 }

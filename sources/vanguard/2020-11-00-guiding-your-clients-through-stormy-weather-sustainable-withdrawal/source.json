@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T07:57:11Z",
   "original": {
     "path": "sources/vanguard/2020-11-00-guiding-your-clients-through-stormy-weather-sustainable-withdrawal/original.pdf",
-    "sha256": "1551e4347b5f658e2fc8901588abdb1919bf99d4dd2fe22a0bc60497848c74b2"
+    "sha256": "1551e4347b5f658e2fc8901588abdb1919bf99d4dd2fe22a0bc60497848c74b2",
+    "md5": "5b8fef082bf013ebaa9a011816844026"
   },
   "notes": "Artifact linked a PlanSponsor summary (https://plansponsor.com/vanguard-tests-approach-decumulation-dynamic-spending-rule); Vanguard original not on vanguard.com; PDF fetched from iwmusa.com"
 }

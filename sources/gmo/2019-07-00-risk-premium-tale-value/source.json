@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:23:04Z",
   "original": {
     "path": "sources/gmo/2019-07-00-risk-premium-tale-value/original.pdf",
-    "sha256": "8c9d7a644c42615ff80e4a946bd9b6ae2e6029497698cf88c3f064f810139187"
+    "sha256": "8c9d7a644c42615ff80e4a946bd9b6ae2e6029497698cf88c3f064f810139187",
+    "md5": "7fd2a4b2869271b16a970facef3bf100"
   },
   "notes": "John Pease. GMO White Paper, July 2019"
 }

@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T07:29:06Z",
   "original": {
     "path": "sources/vanguard/2023-00-00-vanguards-principles-investing-success/original.pdf",
-    "sha256": "d3bd6514709f695ae558ba439ae24c03f399cc4dcf3ec5e50722b06f9001fee2"
+    "sha256": "d3bd6514709f695ae558ba439ae24c03f399cc4dcf3ec5e50722b06f9001fee2",
+    "md5": "0656e261abbe077956b89e625ae25f13"
   },
   "notes": "Date is the copyright year shown in the PDF (2023); README gave 2020"
 }

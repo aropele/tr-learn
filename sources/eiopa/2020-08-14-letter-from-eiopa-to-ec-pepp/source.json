@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:19Z",
   "original": {
     "path": "sources/eiopa/2020-08-14-letter-from-eiopa-to-ec-pepp/original.pdf",
-    "sha256": "0f8209c48ee5b1b2f63f630834f3eb75df7966ed0b530e0a6421ce0242127012"
+    "sha256": "0f8209c48ee5b1b2f63f630834f3eb75df7966ed0b530e0a6421ce0242127012",
+    "md5": "06b862844c710914aeda7f114567353a"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. EIOPA designed and promotes the PEPP, so this material argues for the product."
 }

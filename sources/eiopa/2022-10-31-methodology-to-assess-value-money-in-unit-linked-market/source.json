@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:16Z",
   "original": {
     "path": "sources/eiopa/2022-10-31-methodology-to-assess-value-money-in-unit-linked-market/original.pdf",
-    "sha256": "1fe11ff4d45d18e369448e42b14bfffaff3303cb38ae4b6860356f92cc9d6e24"
+    "sha256": "1fe11ff4d45d18e369448e42b14bfffaff3303cb38ae4b6860356f92cc9d6e24",
+    "md5": "2017f7d5c27135ed7e2e000d3cc70492"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money."
 }

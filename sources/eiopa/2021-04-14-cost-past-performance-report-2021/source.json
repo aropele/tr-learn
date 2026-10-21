@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:18Z",
   "original": {
     "path": "sources/eiopa/2021-04-14-cost-past-performance-report-2021/original.pdf",
-    "sha256": "f02fc52181c16dcac93d3bab9e3c0e7226cf013d5f79b5bc0aa9059066824f63"
+    "sha256": "f02fc52181c16dcac93d3bab9e3c0e7226cf013d5f79b5bc0aa9059066824f63",
+    "md5": "9e2dd74d4db691398fc619a0abea14c9"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. No date printed; date from the publication page."
 }

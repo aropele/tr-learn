@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T07:54:09Z",
   "original": {
     "path": "sources/aaii/2011-05-00-best-practices-portfolio-rebalancing/original.html",
-    "sha256": "4870bcc3c95ce451b45c24c0367fa7461cf740774b1ba27521a08531e94f089a"
+    "sha256": "4870bcc3c95ce451b45c24c0367fa7461cf740774b1ba27521a08531e94f089a",
+    "md5": "b9ddb3d2917b1c6e9ff9bb760a1abffe"
   },
   "notes": "AAII Journal reprint of Vanguard paper Best practices for portfolio rebalancing (Jaconetti, Zilbering, Kinniry); Vanguard-hosted original not found"
 }

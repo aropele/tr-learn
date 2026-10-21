@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:25Z",
   "original": {
     "path": "sources/eiopa/2015-01-07-eiopa-report-on-costs-charges-iorps/original.pdf",
-    "sha256": "2785c4e0d3c7bd6c2b971c4bd81ff8d743f6369f6ac04f27d668535658d1bd35"
+    "sha256": "2785c4e0d3c7bd6c2b971c4bd81ff8d743f6369f6ac04f27d668535658d1bd35",
+    "md5": "5d2d2a5a089e332c9c91a2a8fc320c75"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. Hosted on the old register host, not the main site."
 }

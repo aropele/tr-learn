@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:14Z",
   "original": {
     "path": "sources/eiopa/2024-08-27-methodology-on-value-money-benchmarks/original.pdf",
-    "sha256": "5f930b2b320374b2315c6617a3e1893dc3f731471f709bc80be9d4008616f6c0"
+    "sha256": "5f930b2b320374b2315c6617a3e1893dc3f731471f709bc80be9d4008616f6c0",
+    "md5": "b17275fcbcdbd76f2b1f9ade4759b742"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. Marked [OUTDATED] on its page and replaced by the 2026 revision; kept because NCA work in between cites it. Page also at /publications/outdated-methodology-value-money-benchmarks_en. Date from the PDF (27 Aug 2024); page shows 2024-10-07."
 }

@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:13Z",
   "original": {
     "path": "sources/eiopa/2024-09-11-eiopa-staff-paper-on-future-pan-european-pension-product-pepp/original.pdf",
-    "sha256": "70325c5c9f93859c2915ea8782f8e8f1037ac3fae4d99ca319223ed8c7e376ca"
+    "sha256": "70325c5c9f93859c2915ea8782f8e8f1037ac3fae4d99ca319223ed8c7e376ca",
+    "md5": "7d91c5a61681231f1ea7ca28ac814a43"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money. EIOPA designed and promotes the PEPP, so this material argues for the product."
 }

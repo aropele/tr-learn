@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:31Z",
   "original": {
     "path": "sources/aqr/2015-00-00-strategic-portfolio-construction-how-to-put-it-all-together/original.pdf",
-    "sha256": "ce30ea58dca67d397a76f6c268bf739fc85b6b7890e5b56201544ecb1e1eff03"
+    "sha256": "ce30ea58dca67d397a76f6c268bf739fc85b6b7890e5b56201544ecb1e1eff03",
+    "md5": "86a10353c267056ed6e7798b50099eaa"
   },
   "notes": "No authors printed. AQR Alternative Thinking, Second Quarter 2015 (quarter only, so month left unknown)"
 }

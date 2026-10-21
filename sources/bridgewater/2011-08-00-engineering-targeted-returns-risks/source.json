@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T12:53:14Z",
   "original": {
     "path": "sources/bridgewater/2011-08-00-engineering-targeted-returns-risks/original.pdf",
-    "sha256": "1ad9312c199649f070175fb3fe82484748161a1e1706c746de6823cc4759e54d"
+    "sha256": "1ad9312c199649f070175fb3fe82484748161a1e1706c746de6823cc4759e54d",
+    "md5": "f1e9a68375b2c218821433355e808c88"
   },
   "notes": "Ray Dalio; reprint with updates of a 2004 article"
 }

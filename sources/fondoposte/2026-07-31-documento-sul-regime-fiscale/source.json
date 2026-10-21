@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-16T05:00:06Z",
   "original": {
     "path": "sources/fondoposte/2026-07-31-documento-sul-regime-fiscale/original.pdf",
-    "sha256": "31f8a5ca87bfb55371e0bd4a9e7f0d56042f02a9a1d308af7ce7d11a2efc44b3"
+    "sha256": "31f8a5ca87bfb55371e0bd4a9e7f0d56042f02a9a1d308af7ce7d11a2efc44b3",
+    "md5": "76a029c2e2d1834ecc15790f72638f71"
   },
   "notes": "Fondo Poste (negoziale fund, COVIP no. 143). In force from 31 Jul 2026; reflects L. 199/2025: EUR 5,300 deduction limit from 2026. The tax rules are statutory and identical across Italian pension funds."
 }

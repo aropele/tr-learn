@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:22:51Z",
   "original": {
     "path": "sources/aqr/2023-01-00-fact-fiction-factor-investing/original.pdf",
-    "sha256": "14eeaa25656d375d3cc4fd43c09eb6ae994dd92d12f4fadc1ddb539e97606121"
+    "sha256": "14eeaa25656d375d3cc4fd43c09eb6ae994dd92d12f4fadc1ddb539e97606121",
+    "md5": "a389dcf79f9d7f621e0daa7fe82ba081"
   },
   "notes": "Michele Aghassi, Cliff Asness, Charles Fattouche, Tobias J. Moskowitz. The Journal of Portfolio Management, Vol. 49 No. 2, January 2023 (Quantitative Strategies: Factor Investing, 8th edition); reprint hosted by AQR"
 }

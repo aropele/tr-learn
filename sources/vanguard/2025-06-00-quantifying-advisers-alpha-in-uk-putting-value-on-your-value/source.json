@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T07:57:12Z",
   "original": {
     "path": "sources/vanguard/2025-06-00-quantifying-advisers-alpha-in-uk-putting-value-on-your-value/original.pdf",
-    "sha256": "cf6aaaad4e293fa1411249d026ce125e3887c5dd112209854729697f29456494"
+    "sha256": "cf6aaaad4e293fa1411249d026ce125e3887c5dd112209854729697f29456494",
+    "md5": "79c5b1b84a825b6b3703fb0d327eeb8c"
   },
   "notes": "Research page: https://www.vanguard.co.uk/professional/research/quantifying-advisers-alpha-in-the-uk-putting-a-value-on-your-value"
 }

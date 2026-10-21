@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T12:53:20Z",
   "original": {
     "path": "sources/bridgewater/2025-09-22-new-era-higher-inflation-risks/original.pdf",
-    "sha256": "547e61fc1300297fa841f8f3ed8ddb2a195b2a9f9b4f2fe1f677371ecb2e85c0"
+    "sha256": "547e61fc1300297fa841f8f3ed8ddb2a195b2a9f9b4f2fe1f677371ecb2e85c0",
+    "md5": "e35cca8b98b9feb49922f0157cda63bb"
   },
   "notes": "Ziad Hindo, James Riseley. Landing page: https://www.bridgewater.com/research-and-insights/a-new-era-of-higher-inflation-risks"
 }

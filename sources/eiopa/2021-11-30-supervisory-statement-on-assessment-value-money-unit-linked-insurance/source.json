@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:17Z",
   "original": {
     "path": "sources/eiopa/2021-11-30-supervisory-statement-on-assessment-value-money-unit-linked-insurance/original.pdf",
-    "sha256": "942b6bd70088242c5d78bb7e2e3a228ece15e5579a7b1a2c3792f5a047f0f13c"
+    "sha256": "942b6bd70088242c5d78bb7e2e3a228ece15e5579a7b1a2c3792f5a047f0f13c",
+    "md5": "f5492a8d918ffc3c54fcb33eb61a9a1a"
   },
   "notes": "EIOPA (EU supervisor, sells nothing). Bias: consumer-protection mandate, so cost reports stress poor value for money."
 }

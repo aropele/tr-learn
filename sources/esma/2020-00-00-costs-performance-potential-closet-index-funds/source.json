@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-17T18:11:08Z",
   "original": {
     "path": "sources/esma/2020-00-00-costs-performance-potential-closet-index-funds/original.pdf",
-    "sha256": "505779c12f29fd27fbb000d8ec4079e6be99b46ca4adeaf215409e06e58b2bca"
+    "sha256": "505779c12f29fd27fbb000d8ec4079e6be99b46ca4adeaf215409e06e58b2bca",
+    "md5": "ce1b744b9e0a32c5aff03dd4d7487f19"
   },
   "notes": "ESMA (EU supervisor, sells nothing). Bias: investor-protection mandate feeding the PRIIPs/Retail Investment Strategy agenda, so findings stressing high costs and active underperformance fit its policy line. Excerpt of TRV No. 2, 2020; no day printed."
 }

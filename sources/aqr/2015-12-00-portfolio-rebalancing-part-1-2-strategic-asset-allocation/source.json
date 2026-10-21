@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:21Z",
   "original": {
     "path": "sources/aqr/2015-12-00-portfolio-rebalancing-part-1-2-strategic-asset-allocation/original.pdf",
-    "sha256": "9749e1c405870fff6b3c35d46939e144b7d4d87922c16b78d66de63699e85816"
+    "sha256": "9749e1c405870fff6b3c35d46939e144b7d4d87922c16b78d66de63699e85816",
+    "md5": "7c96fe6f876d805b141bb8faf040c5f0"
   },
   "notes": "Antti Ilmanen, Thomas Maloney. AQR white paper, December 2015. Part 2 (tactical) has no PDF on AQR's site"
 }

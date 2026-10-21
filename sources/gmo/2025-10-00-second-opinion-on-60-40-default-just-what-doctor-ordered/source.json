@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:37:39Z",
   "original": {
     "path": "sources/gmo/2025-10-00-second-opinion-on-60-40-default-just-what-doctor-ordered/original.pdf",
-    "sha256": "38b878d562a4c6d6421fced994872a2e032f66784dd88444732af0a85bfed52c"
+    "sha256": "38b878d562a4c6d6421fced994872a2e032f66784dd88444732af0a85bfed52c",
+    "md5": "a7738bfc34e62ed77cdc442999013cfc"
   },
   "notes": "Ben Inker. GMO, October 2025. Multi-section piece: GMO research-library pages 'Asset Allocation Is Easy in Theory, Difficult in Practice', 'Diversifying Beyond 60/40', 'Beyond 60/40' and 'Improving on the Traditional 60/40' all link to this PDF"
 }

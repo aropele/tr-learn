@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T15:23:02Z",
   "original": {
     "path": "sources/gmo/2011-03-00-seven-immutable-laws-investing/original.pdf",
-    "sha256": "111c9f8b78ad3093b2f8c1326f7d3a64afbfe8d089685c31aa29e2d703137f96"
+    "sha256": "111c9f8b78ad3093b2f8c1326f7d3a64afbfe8d089685c31aa29e2d703137f96",
+    "md5": "6a2d3d977f38a74d057af2599d4df49c"
   },
   "notes": "James Montier. GMO White Paper, March 2011"
 }

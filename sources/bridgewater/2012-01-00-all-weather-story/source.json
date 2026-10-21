@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T12:53:13Z",
   "original": {
     "path": "sources/bridgewater/2012-01-00-all-weather-story/original.pdf",
-    "sha256": "c9c87bb8f9ff315cbff913d0bc81968e09a0fccdcf605bda9d27c4919efccbf8"
+    "sha256": "c9c87bb8f9ff315cbff913d0bc81968e09a0fccdcf605bda9d27c4919efccbf8",
+    "md5": "b1f0001d801d2b073531b13563fe085b"
   },
   "notes": "Authors per footnote: Paul Podolsky, Ryan Johnson, Owen Jennings. Landing page: https://www.bridgewater.com/research-and-insights/the-all-weather-story"
 }

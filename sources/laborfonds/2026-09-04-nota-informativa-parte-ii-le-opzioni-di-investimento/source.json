@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-16T07:28:21Z",
   "original": {
     "path": "sources/laborfonds/2026-09-04-nota-informativa-parte-ii-le-opzioni-di-investimento/original.pdf",
-    "sha256": "c410eac4326cbbb73a97dadc7c13177765ff6c955b9be4cc7000075ce3805575"
+    "sha256": "c410eac4326cbbb73a97dadc7c13177765ff6c955b9be4cc7000075ce3805575",
+    "md5": "b61d45d0637392f5da4d0de063b30477"
   },
   "notes": "Depositata presso la COVIP il 4 settembre 2026. Composizione effettiva a fine 2025, benchmark attuali e storici dal 2001, rendimenti netti annui, TER per linea."
 }

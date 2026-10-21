@@ -10,7 +10,8 @@
   "fetched_at": "2026-10-15T12:53:19Z",
   "original": {
     "path": "sources/bridgewater/2025-03-06-investing-in-new-world-capturing-opportunity-weathering-uncertainty/original.pdf",
-    "sha256": "32665fa96c09483d958ed8f028f8c5412a4d1e6cd65a642c70f40fa525645977"
+    "sha256": "32665fa96c09483d958ed8f028f8c5412a4d1e6cd65a642c70f40fa525645977",
+    "md5": "66cfb19949c197d18fd8091fa53560ae"
   },
   "notes": "Landing page: https://www.bridgewater.com/research-and-insights/investing-in-a-new-world-capturing-opportunity-and-weathering-uncertainty"
 }
