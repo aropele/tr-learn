@@ -2,13 +2,12 @@
 # requires-python = ">=3.11"
 # dependencies = []
 # ///
-import hashlib
 import json
-import os
 import re
 import sys
 from pathlib import Path
 
+import store
 from add import ID_RE, MAX_SLUG, date_part, front_matter
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -17,7 +16,7 @@ REQUIRED = ("id", "title", "publisher", "authors", "published", "kind", "url",
 LINK_RE = re.compile(r"\]\(([^)\s]+)\)")
 
 
-def check_source(sidecar: Path, data_root: Path) -> tuple[list[str], list[str]]:
+def check_source(sidecar: Path, remote: dict[str, str]) -> tuple[list[str], list[str]]:
     errs, warns = [], []
     folder = sidecar.parent
     try:
@@ -26,7 +25,7 @@ def check_source(sidecar: Path, data_root: Path) -> tuple[list[str], list[str]]:
         return [f"{folder.name}: unreadable source.json ({e})"], warns
     orig = m.get("original", 0) if isinstance(m, dict) else 0
     if (not isinstance(m, dict) or any(k not in m for k in REQUIRED)
-            or not (orig is None or (isinstance(orig, dict) and "path" in orig and "sha256" in orig))):
+            or not (orig is None or (isinstance(orig, dict) and all(k in orig for k in ("path", "sha256", "md5"))))):
         return [f"{folder.name}: malformed source.json (wrong shape or missing keys)"], warns
     sid = str(m.get("id"))
     err = lambda msg: errs.append(f"{sid}: {msg}")
@@ -44,14 +43,11 @@ def check_source(sidecar: Path, data_root: Path) -> tuple[list[str], list[str]]:
     except ValueError as e:
         err(str(e))
     if orig is not None:
-        p = data_root / orig["path"]
-        try:
-            if not p.is_file():
-                err(f"original missing: {orig['path']}")
-            elif hashlib.sha256(p.read_bytes()).hexdigest() != orig["sha256"]:
-                err(f"original sha256 mismatch: {orig['path']}")
-        except OSError as e:
-            err(f"original unreadable: {orig['path']} ({e.strerror})")
+        md5 = remote.get(orig["path"])
+        if md5 is None:
+            err(f"original missing: {orig['path']}")
+        elif md5 != orig["md5"]:
+            err(f"original md5 mismatch: {orig['path']}")
     t = folder / "transcription.md"
     if not t.is_file():
         err("transcription.md missing")
@@ -75,13 +71,15 @@ def check_themes(repo_root: Path) -> list[str]:
     return errs
 
 
-def run(repo_root: Path, data_root: Path | None) -> int:
-    if data_root is None:
-        print("DATA_PATH is not set; run with uv run --env-file .env")
+def run(repo_root: Path, store) -> int:
+    try:
+        remote = store.md5s()
+    except RuntimeError as e:
+        print(f"rclone failed: {e}")
         return 1
     errs, warns = check_themes(repo_root), []
     for s in sorted(repo_root.glob("sources/*/*/source.json")):
-        e, w = check_source(s, data_root)
+        e, w = check_source(s, remote)
         errs += e
         warns += w
     for e in errs:
@@ -93,8 +91,7 @@ def run(repo_root: Path, data_root: Path | None) -> int:
 
 
 def main() -> None:
-    dp = os.environ.get("DATA_PATH")
-    sys.exit(run(ROOT, Path(dp) / "tr-learn" if dp else None))
+    sys.exit(run(ROOT, store))
 
 
 if __name__ == "__main__":

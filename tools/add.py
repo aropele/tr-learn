@@ -6,17 +6,17 @@ import argparse
 import hashlib
 import json
 import mimetypes
-import os
 import re
 import shutil
 import sys
-import tempfile
 import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 import unicodedata
+
+import store
 
 STOPWORDS = {"a", "an", "the", "of", "for", "and"}
 MAX_SLUG = 70
@@ -82,13 +82,7 @@ def infer_kind(url: str, content_type: str, data: bytes) -> str:
     raise ValueError(f"cannot infer kind from {content_type}; pass --kind")
 
 
-def _write(path: Path, data: bytes) -> None:
-    with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as t:
-        t.write(data)
-    os.replace(t.name, path)
-
-
-def run(argv: list[str], repo_root: Path, data_root: Path) -> Path:
+def run(argv: list[str], repo_root: Path, store) -> Path:
     p = argparse.ArgumentParser()
     p.add_argument("url")
     p.add_argument("--publisher", required=True)
@@ -113,8 +107,12 @@ def run(argv: list[str], repo_root: Path, data_root: Path) -> Path:
     fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     sid = make_id(a.title, a.published, fetched_at[:10])
     rel = f"sources/{a.publisher}/{sid}"
-    repo_dir, data_dir = repo_root / rel, data_root / rel
-    if repo_dir.exists() or data_dir.exists():
+    repo_dir = repo_root / rel
+    try:
+        taken = repo_dir.exists() or store.md5s(rel)
+    except RuntimeError as e:
+        sys.exit(f"rclone failed: {e}")
+    if taken:
         sys.exit(f"source already exists: {sid}")
 
     kind, data, ext = a.kind, None, None
@@ -142,7 +140,8 @@ def run(argv: list[str], repo_root: Path, data_root: Path) -> Path:
 
     original = None
     if data is not None:
-        original = {"path": f"{rel}/original.{ext}", "sha256": hashlib.sha256(data).hexdigest()}
+        original = {"path": f"{rel}/original.{ext}", "sha256": hashlib.sha256(data).hexdigest(),
+                    "md5": hashlib.md5(data).hexdigest()}
     meta = {"id": sid, "title": a.title, "publisher": a.publisher, "authors": [],
             "published": a.published, "kind": kind, "url": a.url,
             "canonical_url": a.canonical_url, "fetched_at": fetched_at,
@@ -150,26 +149,25 @@ def run(argv: list[str], repo_root: Path, data_root: Path) -> Path:
     if a.popular:
         meta["register"] = "popular"
     try:
-        if data is not None:
-            data_dir.mkdir(parents=True)
-            _write(data_dir / f"original.{ext}", data)
         repo_dir.mkdir(parents=True)
         (repo_dir / "source.json").write_text(
             json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
         (repo_dir / "transcription.md").write_text(
             front_matter(meta), encoding="utf-8", newline="\n")
     except OSError as e:
-        for d in (data_dir, repo_dir):  # both were absent before this run
-            shutil.rmtree(d, ignore_errors=True)
+        shutil.rmtree(repo_dir, ignore_errors=True)  # absent before this run
         sys.exit(f"write failed for {rel}: {e.strerror}")
+    if data is not None:
+        try:
+            store.put(original["path"], data)
+        except RuntimeError as e:
+            shutil.rmtree(repo_dir, ignore_errors=True)
+            sys.exit(f"rclone failed: {e}")
     return repo_dir
 
 
 def main() -> None:
-    if not os.environ.get("DATA_PATH"):
-        sys.exit("DATA_PATH is not set; run with uv run --env-file .env")
-    d = run(sys.argv[1:], Path(__file__).resolve().parent.parent,
-            Path(os.environ["DATA_PATH"]) / "tr-learn")
+    d = run(sys.argv[1:], Path(__file__).resolve().parent.parent, store)
     print(d.name)
 
 
