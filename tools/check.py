@@ -8,12 +8,19 @@ import sys
 from pathlib import Path
 
 import store
-from add import ID_RE, MAX_SLUG, date_part, front_matter
+from add import ID_RE, MAX_SLUG, ORIGINAL_KEYS, date_part, front_matter
 
 ROOT = Path(__file__).resolve().parent.parent
 REQUIRED = ("id", "title", "publisher", "authors", "published", "kind", "url",
             "canonical_url", "fetched_at", "original", "notes")
 LINK_RE = re.compile(r"\]\(([^)\s]+)\)")
+
+
+def _well_formed(m) -> bool:
+    if not isinstance(m, dict) or any(k not in m for k in REQUIRED):
+        return False
+    o = m["original"]
+    return o is None or (isinstance(o, dict) and all(k in o for k in ORIGINAL_KEYS))
 
 
 def check_source(sidecar: Path, remote: dict[str, str]) -> tuple[list[str], list[str]]:
@@ -23,10 +30,9 @@ def check_source(sidecar: Path, remote: dict[str, str]) -> tuple[list[str], list
         m = json.loads(sidecar.read_text(encoding="utf-8"))
     except (OSError, ValueError) as e:
         return [f"{folder.name}: unreadable source.json ({e})"], warns
-    orig = m.get("original", 0) if isinstance(m, dict) else 0
-    if (not isinstance(m, dict) or any(k not in m for k in REQUIRED)
-            or not (orig is None or (isinstance(orig, dict) and all(k in orig for k in ("path", "sha256", "md5"))))):
+    if not _well_formed(m):
         return [f"{folder.name}: malformed source.json (wrong shape or missing keys)"], warns
+    orig = m["original"]
     sid = str(m.get("id"))
     err = lambda msg: errs.append(f"{sid}: {msg}")
     if sid != folder.name:

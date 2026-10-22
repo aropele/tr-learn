@@ -58,6 +58,7 @@ MIRROR_HOSTS = ("externalcrewnet.vanguard.com", "corpaemdisp.essp.c1.vanguard.co
 BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
 FM_FIELDS = ("id", "title", "publisher", "published", "url")
+ORIGINAL_KEYS = ("path", "sha256", "md5")
 PUBLISHER_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 POPULAR_USE = "popular education only; never use for professional or client-specific advice"
 
@@ -80,6 +81,30 @@ def infer_kind(url: str, content_type: str, data: bytes) -> str:
     if "html" in content_type:
         return "html"
     raise ValueError(f"cannot infer kind from {content_type}; pass --kind")
+
+
+def _load(a: argparse.Namespace) -> tuple[str, bytes, str]:
+    if a.file:
+        try:
+            data = Path(a.file).read_bytes()
+        except OSError as e:
+            sys.exit(f"cannot read --file: {e.strerror}")
+        content_type = mimetypes.guess_type(a.file)[0] or ""
+    else:
+        req = urllib.request.Request(a.url, headers={"User-Agent": BROWSER_UA})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data, content_type = r.read(), r.headers.get("Content-Type", "")
+        except (urllib.error.URLError, OSError) as err:  # URLError, TimeoutError, resets
+            sys.exit(f"download failed ({err}); save the page in a browser and pass --file")
+    try:
+        kind = a.kind or infer_kind(a.url, content_type, data)
+    except ValueError as err:
+        sys.exit(str(err))
+    is_pdf = data.startswith(b"%PDF-")
+    if kind == "pdf" and not is_pdf:
+        sys.exit("--kind pdf but the data is not a PDF")
+    return kind, data, "pdf" if is_pdf else "html"
 
 
 def run(argv: list[str], repo_root: Path, store) -> Path:
@@ -115,31 +140,10 @@ def run(argv: list[str], repo_root: Path, store) -> Path:
     if taken:
         sys.exit(f"source already exists: {sid}")
 
-    kind, data, ext = a.kind, None, None
-    if kind != "video":
-        if a.file:
-            try:
-                data = Path(a.file).read_bytes()
-            except OSError as e:
-                sys.exit(f"cannot read --file: {e.strerror}")
-            content_type = mimetypes.guess_type(a.file)[0] or ""
-        else:
-            req = urllib.request.Request(a.url, headers={"User-Agent": BROWSER_UA})
-            try:
-                with urllib.request.urlopen(req, timeout=60) as r:
-                    data, content_type = r.read(), r.headers.get("Content-Type", "")
-            except (urllib.error.URLError, OSError) as err:  # URLError, TimeoutError, resets
-                sys.exit(f"download failed ({err}); save the page in a browser and pass --file")
-        try:
-            kind = kind or infer_kind(a.url, content_type, data)
-        except ValueError as err:
-            sys.exit(str(err))
-        if kind == "pdf" and not data.startswith(b"%PDF-"):
-            sys.exit("--kind pdf but the data is not a PDF")
-        ext = "pdf" if data.startswith(b"%PDF-") else "html"
-
-    original = None
-    if data is not None:
+    if a.kind == "video":
+        kind, data, original = "video", None, None
+    else:
+        kind, data, ext = _load(a)
         original = {"path": f"{rel}/original.{ext}", "sha256": hashlib.sha256(data).hexdigest(),
                     "md5": hashlib.md5(data).hexdigest()}
     meta = {"id": sid, "title": a.title, "publisher": a.publisher, "authors": [],
